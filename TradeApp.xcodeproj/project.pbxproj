@@ -92,6 +92,7 @@
 			children = (
 				1CE8D6602A1E01C70082D8C1 /* App */,
 				1CE8D65A2A1D2FC30082D8C1 /* ViewController.swift */,
+				1CE8D6702A1E9D910082D8C1 /* Currency Pair */,
 				1CE8D6572A1D28E50082D8C1 /* Trade */,
 				1CE8D6612A1E02530082D8C1 /* Sources */,
 				1CE8D6422A1D1F890082D8C1 /* Extensions.swift */,
@@ -147,6 +148,13 @@
 				1CE8D62A2A1D0B180082D8C1 /* LaunchScreen.storyboard */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		1CE8D6702A1E9D910082D8C1 /* Currency Pair */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Currency Pair";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
