@@ -29,6 +29,7 @@
 		1CE8D6692A1E262E0082D8C1 /* CustomStepperLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D6682A1E262E0082D8C1 /* CustomStepperLabel.swift */; };
 		1CE8D66B2A1E2C4E0082D8C1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D66A2A1E2C4E0082D8C1 /* CustomButton.swift */; };
 		1CE8D66D2A1E342A0082D8C1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D66C2A1E342A0082D8C1 /* Model.swift */; };
+		1CE8D66F2A1E8E9F0082D8C1 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D66E2A1E8E9F0082D8C1 /* NotificationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		1CE8D6682A1E262E0082D8C1 /* CustomStepperLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepperLabel.swift; sourceTree = "<group>"; };
 		1CE8D66A2A1E2C4E0082D8C1 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		1CE8D66C2A1E342A0082D8C1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		1CE8D66E2A1E8E9F0082D8C1 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				1CE8D6682A1E262E0082D8C1 /* CustomStepperLabel.swift */,
 				1CE8D6642A1E14BF0082D8C1 /* BalanceLabel.swift */,
 				1CE8D66A2A1E2C4E0082D8C1 /* CustomButton.swift */,
+				1CE8D66E2A1E8E9F0082D8C1 /* NotificationView.swift */,
 			);
 			path = Trade;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				1CE8D6672A1E26070082D8C1 /* CustomStepperButton.swift in Sources */,
 				1CE8D65D2A1D45DB0082D8C1 /* CustomActionsStack.swift in Sources */,
 				1CE8D65B2A1D2FC30082D8C1 /* ViewController.swift in Sources */,
+				1CE8D66F2A1E8E9F0082D8C1 /* NotificationView.swift in Sources */,
 				1CE8D6432A1D1F890082D8C1 /* Extensions.swift in Sources */,
 				1CE8D66D2A1E342A0082D8C1 /* Model.swift in Sources */,
 				1CE8D6202A1D0B160082D8C1 /* AppDelegate.swift in Sources */,

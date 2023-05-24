@@ -28,6 +28,7 @@ extension Int {
   }
 }
 
+// Extension to format int to time format mm:ss (e.g: 75 -> 01:15)
 extension Int {
   func formatToTime() -> String {
     let minutes = self / 60

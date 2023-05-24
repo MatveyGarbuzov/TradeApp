@@ -147,12 +147,25 @@ class CustomActionsStack: UIStackView {
     })
   }
   
+  func showNotification() {
+    let notification = NotificationView()
+    superview?.addSubview(notification)
+    notification.snp.makeConstraints { make in
+      make.width.equalToSuperview().multipliedBy(0.4)
+      make.center.equalToSuperview()
+    }
+    notification.showAnimation()
+  }
+  
   @objc func currencyPairsButtonPressed(_ sender: UIView) {
     sender.animateInsidePress()
     updateUI()
   }
   
   @objc func buyButtonPressed(_ sender: UIView) {
+    if viewModel?.investmentStepper.currentValue ?? 0 > 0 {
+      showNotification()
+    }
     viewModel?.changeBalance(with: viewModel?.investmentStepper.currentValue ?? 0)
     delegate?.updateBalanceLabel()
     
@@ -168,6 +181,8 @@ class CustomActionsStack: UIStackView {
   }
   
   @objc func sellButtonPressed(_ sender: UIView) {
+    showNotification()
+    
     sender.animateInsidePress()
     updateUI()
   }
