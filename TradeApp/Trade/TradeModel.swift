@@ -6,13 +6,13 @@
 //
 
 import Foundation
-
-struct TradeModel {
-    var amount: Double
-    var timer: Int
-
-    init(amount: Double, timer: Int) {
-        self.amount = amount
-        self.timer = timer
-    }
-}
+//
+//struct TradeModel {
+//    var amount: Double
+//    var timer: Int
+//
+//    init(amount: Double, timer: Int) {
+//        self.amount = amount
+//        self.timer = timer
+//    }
+//}

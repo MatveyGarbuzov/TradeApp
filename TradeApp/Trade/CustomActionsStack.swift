@@ -8,6 +8,12 @@
 import UIKit
 
 class CustomActionsStack: UIStackView {
+  var viewModel: TradeViewModel? {
+    didSet {
+      updateUI()
+    }
+  }
+  
   private let currencyPairsButton: UIButton = {
     var container = AttributeContainer()
     container.font = UIFont.appFontBold(ofSize: 16)
@@ -35,6 +41,7 @@ class CustomActionsStack: UIStackView {
   
   private let steppersHStack: UIStackView = {
     let stack = UIStackView()
+    
     stack.axis = .horizontal
     stack.alignment = .center
     stack.spacing = 10
@@ -64,7 +71,6 @@ class CustomActionsStack: UIStackView {
 //    self.backgroundColor = .white
     setupViews()
     setupConstraints()
-    
   }
   
   required init(coder: NSCoder) {
@@ -84,13 +90,22 @@ class CustomActionsStack: UIStackView {
     self.alignment = .center
     self.spacing = 8
     
+    timerStepper.delegate = self
     timerStepper.updateSubLabel("Timer")
+    investmentStepper.delegate = self
     investmentStepper.updateSubLabel("Investment")
     
     sellButton.backgroundColor = UIColor.Theme.red
     sellButton.set(text: "Sell")
     buyButton.backgroundColor = UIColor.Theme.green
     buyButton.set(text: "Buy")
+  }
+  
+  func updateUI() {
+    print("UPDATING UI!")
+    
+    timerStepper.updateLabel(viewModel?.timerStepperText ?? "00:00")
+    investmentStepper.updateLabel(viewModel?.investmentStepperText ?? "0")
   }
   
   private func setupConstraints() {
@@ -130,5 +145,30 @@ class CustomActionsStack: UIStackView {
   @objc func currencyPairsButtonPressed(_ sender: UIView) {
     print("pressed")
     sender.animateInsidePress()
+    updateUI()
+  }
+}
+
+extension CustomActionsStack: CustomButtonDelegate {
+  func leftButtonTapped(sender: StepperLabel) {
+    let senderText = sender.subLabel.text
+    
+    if senderText == "Timer" {
+      viewModel?.changeTimerStepper(with: -1)
+    } else if senderText == "Investment" {
+      viewModel?.changeInvestmentStepper(with: -100)
+    }
+    updateUI()
+  }
+  
+  func rightButtonTapped(sender: StepperLabel) {
+    let senderText = sender.subLabel.text
+    
+    if senderText == "Timer" {
+      viewModel?.changeTimerStepper(with: +1)
+    } else if senderText == "Investment" {
+      viewModel?.changeInvestmentStepper(with: +100)
+    }
+    updateUI()
   }
 }

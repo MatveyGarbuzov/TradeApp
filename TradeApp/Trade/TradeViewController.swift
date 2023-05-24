@@ -13,10 +13,10 @@ import SnapKit
 class TradeViewController: UIViewController {
 //  var viewModel: TradeViewModel?
   let request = URLRequest(url: URL(fileURLWithPath: Bundle.main.path(forResource: "index", ofType: "html")!))
-  var viewModel = TradeViewModel(trade: TradeModel(amount: 100, timer: 10), url: URL(fileURLWithPath: Bundle.main.path(forResource: "index", ofType: "html")!))
+  let viewModel = TradeViewModel()
+//  var viewModel = TradeViewModel(trade: TradeModel(amount: 100, timer: 10), url: URL(fileURLWithPath: Bundle.main.path(forResource: "index", ofType: "html")!))
 
-//  let balanceStack = CustomBalanceStack()
-  let balanceStack = BalanceLabel()
+  let balanceLabel = BalanceLabel()
   
   let webView: WKWebView = {
     let view = WKWebView()
@@ -28,9 +28,7 @@ class TradeViewController: UIViewController {
   }()
   
   let actionStack = CustomActionsStack()
-  
-  let amountLabel = UILabel()
-  let timerLabel = UILabel()
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -51,12 +49,11 @@ class TradeViewController: UIViewController {
   }
   
   func setupConstraints() {
-    view.addSubview(balanceStack)
+    view.addSubview(balanceLabel)
     view.addSubview(webView)
     view.addSubview(actionStack)
     
-    
-    balanceStack.snp.makeConstraints { make in
+    balanceLabel.snp.makeConstraints { make in
       make.width.equalToSuperview().multipliedBy(0.9)
       make.height.equalTo(57)
       make.centerX.equalToSuperview()
@@ -65,7 +62,7 @@ class TradeViewController: UIViewController {
     
     webView.snp.makeConstraints { make in
       make.centerX.equalToSuperview()
-      make.top.equalTo(balanceStack.snp.bottom).offset(33)
+      make.top.equalTo(balanceLabel.snp.bottom).offset(25)
       make.width.equalTo(view.snp.width).offset(10)
       make.height.equalTo(view.snp.width).multipliedBy(0.85)
     }
@@ -83,10 +80,8 @@ class TradeViewController: UIViewController {
 //    guard let viewModel = viewModel else { return }
     
     webView.load(request)
-    amountLabel.text = viewModel.amountString
-    timerLabel.text = viewModel.timerString
-    
-    balanceStack.updateBalance(10000)
+    balanceLabel.updateLabel(viewModel.balanceText)
+    actionStack.viewModel = viewModel
   }
 }
 

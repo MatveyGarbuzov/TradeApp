@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol CustomButtonDelegate: AnyObject {
+  func leftButtonTapped(sender: StepperLabel)
+  func rightButtonTapped(sender: StepperLabel)
+}
+
+
 class StepperLabel: CustomLabel {
+  weak var delegate: CustomButtonDelegate?
+  
   let leftStepper = CustomStepper()
   let rightStepper = CustomStepper()
   
@@ -22,7 +30,14 @@ class StepperLabel: CustomLabel {
   
   private func setupViews() {
     leftStepper.setImage(UIImage(systemName: "minus.circle")!)
+    leftStepper.buttonActionHandler = { _ in
+      self.leftButtonTapped()
+    }
+    
     rightStepper.setImage(UIImage(systemName: "plus.circle")!)
+    rightStepper.buttonActionHandler = { _ in
+      self.rightButtonTapped()
+    }
     
     super.addSubview(leftStepper)
     super.addSubview(rightStepper)
@@ -41,4 +56,15 @@ class StepperLabel: CustomLabel {
       make.bottom.equalTo(super.label.snp.bottom)
     }
   }
+  
+  @objc private func leftButtonTapped() {
+    print("left")
+    delegate?.leftButtonTapped(sender: self)
+  }
+
+  @objc private func rightButtonTapped() {
+    print("right")
+    delegate?.rightButtonTapped(sender: self)
+  }
+
 }

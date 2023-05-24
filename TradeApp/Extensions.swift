@@ -27,3 +27,13 @@ extension Double {
     return formatter.string(from: NSNumber(value: self)) ?? "\(self)"
   }
 }
+
+extension Int {
+  func formatToTime() -> String {
+    let minutes = self / 60
+    let seconds = self % 60
+    
+    return String(format: "%02d:%02d", minutes, seconds)
+  }
+}
+

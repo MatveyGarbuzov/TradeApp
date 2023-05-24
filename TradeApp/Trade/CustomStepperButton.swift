@@ -8,9 +8,12 @@
 import UIKit
 
 class CustomStepper: UIView {
+  var buttonActionHandler: ((CustomStepper) -> Void)?
+  
   private let button: UIButton = {
     let button = UIButton()
     button.tintColor = UIColor.Theme.additionalText
+    button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     return button
   }()
   
@@ -34,4 +37,9 @@ class CustomStepper: UIView {
   func setImage(_ image: UIImage) {
     button.setImage(image, for: .normal)
   }
+  
+  @objc private func buttonAction(_ sender: UIButton) {
+    buttonActionHandler?(self)
+  }
+
 }
