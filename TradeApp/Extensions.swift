@@ -19,7 +19,7 @@ extension UIColor {
 }
 
 // Extension to format numbers. (e.g: 10000 -> "10 000")
-extension Double {
+extension Int {
   func formatted() -> String {
     let formatter = NumberFormatter()
     formatter.numberStyle = .decimal

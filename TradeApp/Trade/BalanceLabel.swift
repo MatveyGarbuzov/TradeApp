@@ -8,6 +8,12 @@
 import UIKit
 
 class BalanceLabel: CustomLabel {
+  var viewModel: TradeViewModel? {
+    didSet {
+      updateUI()
+    }
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     super.updateSubLabel("Balance")
@@ -17,7 +23,7 @@ class BalanceLabel: CustomLabel {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func updateBalance(_ amount: Double) {
-    super.updateLabel(amount.formatted())
+  func updateUI() {
+    super.updateLabel(viewModel?.balanceText ?? "0")
   }
 }

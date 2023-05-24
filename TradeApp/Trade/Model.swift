@@ -8,7 +8,7 @@
 import Foundation
 
 struct Balance {
-  var currentBalance: Double
+  var currentBalance: Int
 }
 
 struct ChangeAmount {

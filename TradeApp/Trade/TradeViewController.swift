@@ -14,7 +14,6 @@ class TradeViewController: UIViewController {
 //  var viewModel: TradeViewModel?
   let request = URLRequest(url: URL(fileURLWithPath: Bundle.main.path(forResource: "index", ofType: "html")!))
   let viewModel = TradeViewModel()
-//  var viewModel = TradeViewModel(trade: TradeModel(amount: 100, timer: 10), url: URL(fileURLWithPath: Bundle.main.path(forResource: "index", ofType: "html")!))
 
   let balanceLabel = BalanceLabel()
   
@@ -73,15 +72,15 @@ class TradeViewController: UIViewController {
       make.centerX.equalToSuperview()
       make.width.equalToSuperview().multipliedBy(0.9)
     }
-    
   }
   
   func updateView() {
 //    guard let viewModel = viewModel else { return }
     
     webView.load(request)
-    balanceLabel.updateLabel(viewModel.balanceText)
+    balanceLabel.viewModel = viewModel
     actionStack.viewModel = viewModel
+    actionStack.delegate = self
   }
 }
 
@@ -91,4 +90,10 @@ extension TradeViewController: UIScrollViewDelegate {
   func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
     scrollView.pinchGestureRecognizer?.isEnabled = false
   }
+}
+
+extension TradeViewController: BalanceChangedDelegate {
+    func updateBalanceLabel() {
+      balanceLabel.updateUI()
+    }
 }

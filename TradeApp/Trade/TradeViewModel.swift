@@ -8,7 +8,7 @@
 import Foundation
 
 class TradeViewModel {
-  var balance = Balance(currentBalance: 10000.0)
+  var balance = Balance(currentBalance: 10000)
   var timerStepper = Stepper(currentValue: 4)
   var investmentStepper = Stepper(currentValue: 1000)
   
@@ -22,6 +22,10 @@ class TradeViewModel {
   
   var investmentStepperText: String {
     return "\(investmentStepper.currentValue)"
+  }
+  
+  func changeBalance(with value: Int) {
+    balance.currentBalance -= value
   }
   
   func changeTimerStepper(with value: Int) {
@@ -38,7 +42,7 @@ class TradeViewModel {
   
   func changeInvestmentStepper(with value: Int) {
     // Check that the investment value doesn't go out of balance
-    if (value > 0 && Int(balance.currentBalance) <= investmentStepper.currentValue + value) {
+    if (value > 0 && balance.currentBalance < investmentStepper.currentValue + value) {
       print("Investment over balance")
     } else {
       // Check that there is no investment of $ 0

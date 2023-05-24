@@ -7,7 +7,12 @@
 
 import UIKit
 
+protocol BalanceChangedDelegate: AnyObject {
+    func updateBalanceLabel()
+}
+
 class CustomActionsStack: UIStackView {
+  weak var delegate: BalanceChangedDelegate?
   var viewModel: TradeViewModel? {
     didSet {
       updateUI()
@@ -91,19 +96,19 @@ class CustomActionsStack: UIStackView {
     self.spacing = 8
     
     timerStepper.delegate = self
-    timerStepper.updateSubLabel("Timer")
     investmentStepper.delegate = self
+    timerStepper.updateSubLabel("Timer")
     investmentStepper.updateSubLabel("Investment")
     
     sellButton.backgroundColor = UIColor.Theme.red
     sellButton.set(text: "Sell")
+    sellButton.addTarget(self, action: #selector(sellButtonPressed), for: .touchUpInside)
     buyButton.backgroundColor = UIColor.Theme.green
     buyButton.set(text: "Buy")
+    buyButton.addTarget(self, action: #selector(buyButtonPressed), for: .touchUpInside)
   }
   
   func updateUI() {
-    print("UPDATING UI!")
-    
     timerStepper.updateLabel(viewModel?.timerStepperText ?? "00:00")
     investmentStepper.updateLabel(viewModel?.investmentStepperText ?? "0")
   }
@@ -143,7 +148,26 @@ class CustomActionsStack: UIStackView {
   }
   
   @objc func currencyPairsButtonPressed(_ sender: UIView) {
-    print("pressed")
+    sender.animateInsidePress()
+    updateUI()
+  }
+  
+  @objc func buyButtonPressed(_ sender: UIView) {
+    viewModel?.changeBalance(with: viewModel?.investmentStepper.currentValue ?? 0)
+    delegate?.updateBalanceLabel()
+    
+    // Checking that the investment is larger than the balance.
+    // If it is larger, it automatically becomes equal to the balance
+    if let balance = viewModel?.balance.currentBalance, let invest =  viewModel?.investmentStepper.currentValue {
+      if invest > balance {
+        viewModel?.investmentStepper.currentValue = balance
+      }
+    }
+    sender.animateInsidePress()
+    updateUI()
+  }
+  
+  @objc func sellButtonPressed(_ sender: UIView) {
     sender.animateInsidePress()
     updateUI()
   }
