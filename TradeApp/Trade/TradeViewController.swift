@@ -15,19 +15,19 @@ class TradeViewController: UIViewController {
   let request = URLRequest(url: URL(fileURLWithPath: Bundle.main.path(forResource: "index", ofType: "html")!))
   var viewModel = TradeViewModel(trade: TradeModel(amount: 100, timer: 10), url: URL(fileURLWithPath: Bundle.main.path(forResource: "index", ofType: "html")!))
 
-  let balanceStack = CustomBalanceStack()
+//  let balanceStack = CustomBalanceStack()
+  let balanceStack = BalanceLabel()
   
   let webView: WKWebView = {
     let view = WKWebView()
-    
-//    view.load(request)
-//    view.backgroundColor = .orange
     view.isOpaque = false;
     view.backgroundColor = .clear
     view.scrollView.isScrollEnabled = false
     
     return view
   }()
+  
+  let actionStack = CustomActionsStack()
   
   let amountLabel = UILabel()
   let timerLabel = UILabel()
@@ -53,6 +53,7 @@ class TradeViewController: UIViewController {
   func setupConstraints() {
     view.addSubview(balanceStack)
     view.addSubview(webView)
+    view.addSubview(actionStack)
     
     
     balanceStack.snp.makeConstraints { make in
@@ -65,8 +66,17 @@ class TradeViewController: UIViewController {
     webView.snp.makeConstraints { make in
       make.centerX.equalToSuperview()
       make.top.equalTo(balanceStack.snp.bottom).offset(33)
-      make.width.height.equalTo(view.snp.width).offset(10)
+      make.width.equalTo(view.snp.width).offset(10)
+      make.height.equalTo(view.snp.width).multipliedBy(0.85)
     }
+    
+    actionStack.snp.makeConstraints { make in
+      make.top.equalTo(webView.snp.bottom).offset(16)
+      make.bottom.equalToSuperview()
+      make.centerX.equalToSuperview()
+      make.width.equalToSuperview().multipliedBy(0.9)
+    }
+    
   }
   
   func updateView() {
@@ -75,7 +85,8 @@ class TradeViewController: UIViewController {
     webView.load(request)
     amountLabel.text = viewModel.amountString
     timerLabel.text = viewModel.timerString
-    balanceStack.setBalanceAmount(10000)
+    
+    balanceStack.updateBalance(10000)
   }
 }
 
