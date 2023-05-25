@@ -12,7 +12,6 @@ protocol CustomButtonDelegate: AnyObject {
   func rightButtonTapped(sender: StepperLabel)
 }
 
-
 class StepperLabel: CustomLabel {
   weak var delegate: CustomButtonDelegate?
   

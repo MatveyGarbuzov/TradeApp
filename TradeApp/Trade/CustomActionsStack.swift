@@ -21,6 +21,11 @@ class CustomActionsStack: UIStackView {
   
   let haptic = HapticGenerator.shared
   
+  private let timerStepper = StepperLabel()
+  private let investmentStepper = StepperLabel()
+  private let sellButton = CustomButton()
+  private let buyButton = CustomButton()
+  
   private lazy var currencyPairsButton: UIButton = {
     var container = AttributeContainer()
     container.font = UIFont.appFontBold(ofSize: 16)
@@ -42,10 +47,6 @@ class CustomActionsStack: UIStackView {
     
     return button
   }()
-  
-  private let timerStepper = StepperLabel()
-  private let investmentStepper = StepperLabel()
-  
   private let steppersHStack: UIStackView = {
     let stack = UIStackView()
     
@@ -56,10 +57,6 @@ class CustomActionsStack: UIStackView {
     
     return stack
   }()
-  
-  private let sellButton = CustomButton()
-  private let buyButton = CustomButton()
-  
   private let buySellHStack: UIStackView = {
     let stack = UIStackView()
     stack.axis = .horizontal
@@ -70,12 +67,10 @@ class CustomActionsStack: UIStackView {
     return stack
   }()
 
-  
   private let spacer = UIView()
   
   init() {
     super.init(frame: .zero)
-//    self.backgroundColor = .white
     setupViews()
     setupConstraints()
   }
@@ -110,7 +105,7 @@ class CustomActionsStack: UIStackView {
     buyButton.addTarget(self, action: #selector(buyButtonPressed), for: .touchUpInside)
   }
   
-  func updateUI() {
+  private func updateUI() {
     timerStepper.updateLabel(viewModel?.timerStepperText ?? "00:00")
     investmentStepper.updateLabel(viewModel?.investmentStepperText ?? "0")
   }
@@ -149,7 +144,7 @@ class CustomActionsStack: UIStackView {
     })
   }
   
-  func showNotification() {
+  private func showNotification() {
     let notification = NotificationView()
     superview?.addSubview(notification)
     notification.snp.makeConstraints { make in

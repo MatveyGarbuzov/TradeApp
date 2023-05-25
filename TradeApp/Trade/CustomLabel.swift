@@ -10,7 +10,7 @@ import UIKit
 class CustomLabel: UIView {
   let subLabel: UILabel = {
     let label = UILabel()
-//    label.text = "Timer"
+    //    label.text = "Timer"
     label.font = UIFont.appFontMedium(ofSize: 12)
     label.textColor = UIColor.Theme.additionalText
     label.textAlignment = .center
@@ -30,10 +30,10 @@ class CustomLabel: UIView {
     stack.axis = .vertical
     stack.alignment = .center
     stack.distribution = .fillProportionally
-
+    
     return stack
   }()
-    
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     backgroundColor = UIColor.Theme.additionalBG
@@ -60,7 +60,7 @@ class CustomLabel: UIView {
       make.height.equalToSuperview().multipliedBy(0.25)
       make.width.equalToSuperview()
     }
-
+    
     stackView.snp.makeConstraints { make in
       make.height.equalTo(50)
       make.width.equalToSuperview().multipliedBy(0.6)
@@ -68,7 +68,7 @@ class CustomLabel: UIView {
     }
   }
   
-   func updateLabel(_ value: String) {
+  func updateLabel(_ value: String) {
     self.label.text = value
   }
   
