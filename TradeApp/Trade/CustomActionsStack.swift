@@ -19,6 +19,8 @@ class CustomActionsStack: UIStackView {
     }
   }
   
+  let haptic = HapticGenerator.shared
+  
   private lazy var currencyPairsButton: UIButton = {
     var container = AttributeContainer()
     container.font = UIFont.appFontBold(ofSize: 16)
@@ -160,6 +162,7 @@ class CustomActionsStack: UIStackView {
   @objc func currencyPairsButtonPressed(_ sender: UIView) {
     sender.animateInsidePress()
     updateUI()
+    haptic.trigger()
   }
   
   @objc func buyButtonPressed(_ sender: UIView) {
@@ -178,6 +181,7 @@ class CustomActionsStack: UIStackView {
     }
     sender.animateInsidePress()
     updateUI()
+    haptic.trigger()
   }
   
   @objc func sellButtonPressed(_ sender: UIView) {
@@ -185,6 +189,7 @@ class CustomActionsStack: UIStackView {
     
     sender.animateInsidePress()
     updateUI()
+    haptic.trigger()
   }
 }
 
@@ -198,6 +203,7 @@ extension CustomActionsStack: CustomButtonDelegate {
       viewModel?.changeInvestmentStepper(with: -100)
     }
     updateUI()
+    haptic.trigger(style: .light)
   }
   
   func rightButtonTapped(sender: StepperLabel) {
@@ -209,5 +215,6 @@ extension CustomActionsStack: CustomButtonDelegate {
       viewModel?.changeInvestmentStepper(with: +100)
     }
     updateUI()
+    haptic.trigger(style: .light)
   }
 }
