@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
   
-  let button: UIButton = {
+  lazy var button: UIButton = {
     let button = UIButton()
     button.backgroundColor = .red
     button.setTitle("Press", for: .normal)

@@ -19,7 +19,7 @@ class CustomActionsStack: UIStackView {
     }
   }
   
-  private let currencyPairsButton: UIButton = {
+  private lazy var currencyPairsButton: UIButton = {
     var container = AttributeContainer()
     container.font = UIFont.appFontBold(ofSize: 16)
     

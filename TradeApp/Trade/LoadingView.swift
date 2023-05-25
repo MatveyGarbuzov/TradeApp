@@ -133,7 +133,6 @@ class LoadingView: UIView {
   // Smooth loading
   func animateLoading() {
     let isLoading = true
-    let duration = 2.0
     var progress: Float = 0.0
     
     // Start the progress timer

@@ -135,8 +135,8 @@ extension TradeViewController: WKNavigationDelegate {
   }
   
   func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-    let progress = webView.estimatedProgress
-    //    loadingView?.setProgress(progress: Float(progress))
+//    let progress = webView.estimatedProgress
+//    loadingView?.setProgress(progress: Float(progress))
     loadingView?.animateLoading() // Smooth animation
   }
 }

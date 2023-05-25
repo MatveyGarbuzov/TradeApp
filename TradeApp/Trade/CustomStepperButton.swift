@@ -10,7 +10,7 @@ import UIKit
 class CustomStepper: UIView {
   var buttonActionHandler: ((CustomStepper) -> Void)?
   
-  private let button: UIButton = {
+  private lazy var button: UIButton = {
     let button = UIButton()
     button.tintColor = UIColor.Theme.additionalText
     button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
