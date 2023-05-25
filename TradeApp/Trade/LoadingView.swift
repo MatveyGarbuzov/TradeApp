@@ -10,6 +10,7 @@ import WebKit
 
 class LoadingView: UIView {
   var webView: WKWebView?
+  private var webViewObservation: NSKeyValueObservation?
   
   private let blurView: UIView = {
     let blurEffect = UIBlurEffect(style: .systemUltraThinMaterialDark)
@@ -49,8 +50,6 @@ class LoadingView: UIView {
     
     return progressView
   }()
-  
-  private var webViewObservation: NSKeyValueObservation?
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -104,11 +103,11 @@ class LoadingView: UIView {
   
   private func addAnimation() {
     UIView.animate(withDuration: 1.0, delay: 0, options: [.repeat, .autoreverse], animations: { [self] in
-        redSquare.frame.origin.y += 50
+      redSquare.frame.origin.y += 50
     }, completion: nil)
     
     UIView.animate(withDuration: 1.0, delay: 0, options: [.repeat, .autoreverse], animations: { [self] in
-        greenSquare.frame.origin.y -= 50
+      greenSquare.frame.origin.y -= 50
     }, completion: nil)
   }
   
@@ -160,7 +159,6 @@ class LoadingView: UIView {
     //    }
   }
 }
-
 
 extension LoadingView: WKNavigationDelegate {
   func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
