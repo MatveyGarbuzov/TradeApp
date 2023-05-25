@@ -30,6 +30,11 @@
 		1CE8D66B2A1E2C4E0082D8C1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D66A2A1E2C4E0082D8C1 /* CustomButton.swift */; };
 		1CE8D66D2A1E342A0082D8C1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D66C2A1E342A0082D8C1 /* Model.swift */; };
 		1CE8D66F2A1E8E9F0082D8C1 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D66E2A1E8E9F0082D8C1 /* NotificationView.swift */; };
+		1CE8D67A2A1EACF40082D8C1 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D6792A1EACF40082D8C1 /* LoadingView.swift */; };
+		1CE8D67E2A1F49F10082D8C1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE8D67C2A1F499C0082D8C1 /* SystemConfiguration.framework */; };
+		1CE8D6822A1F52C20082D8C1 /* ConnectionErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D6812A1F52C20082D8C1 /* ConnectionErrorLabel.swift */; };
+		1CE8D6842A1F558D0082D8C1 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CE8D6832A1F558D0082D8C1 /* Inter-ExtraBold.ttf */; };
+		F15B13710A4DEBD6AACAFC62 /* Pods_TradeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C177FCE53664FA5E15BC3D /* Pods_TradeApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +62,13 @@
 		1CE8D66A2A1E2C4E0082D8C1 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		1CE8D66C2A1E342A0082D8C1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		1CE8D66E2A1E8E9F0082D8C1 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		1CE8D6792A1EACF40082D8C1 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		1CE8D67C2A1F499C0082D8C1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1CE8D6812A1F52C20082D8C1 /* ConnectionErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionErrorLabel.swift; sourceTree = "<group>"; };
+		1CE8D6832A1F558D0082D8C1 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		22C177FCE53664FA5E15BC3D /* Pods_TradeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TradeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CDEFF66AB449A8E825D62FC /* Pods-TradeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeApp.debug.xcconfig"; path = "Target Support Files/Pods-TradeApp/Pods-TradeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		AE48F26D07EE642A65830C84 /* Pods-TradeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeApp.release.xcconfig"; path = "Target Support Files/Pods-TradeApp/Pods-TradeApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +76,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CE8D67E2A1F49F10082D8C1 /* SystemConfiguration.framework in Frameworks */,
 				1CE8D63B2A1D10220082D8C1 /* SnapKit in Frameworks */,
+				F15B13710A4DEBD6AACAFC62 /* Pods_TradeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +90,8 @@
 			children = (
 				1CE8D61E2A1D0B160082D8C1 /* TradeApp */,
 				1CE8D61D2A1D0B160082D8C1 /* Products */,
+				1CE8D67B2A1F499C0082D8C1 /* Frameworks */,
+				4AED13E3952036301A3BCBB7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,8 +106,8 @@
 		1CE8D61E2A1D0B160082D8C1 /* TradeApp */ = {
 			isa = PBXGroup;
 			children = (
-				1CE8D6602A1E01C70082D8C1 /* App */,
 				1CE8D65A2A1D2FC30082D8C1 /* ViewController.swift */,
+				1CE8D6602A1E01C70082D8C1 /* App */,
 				1CE8D6702A1E9D910082D8C1 /* Currency Pair */,
 				1CE8D6572A1D28E50082D8C1 /* Trade */,
 				1CE8D6612A1E02530082D8C1 /* Sources */,
@@ -107,6 +123,7 @@
 			children = (
 				1CE8D6442A1D20980082D8C1 /* Fonts.swift */,
 				1CE8D6522A1D221F0082D8C1 /* Inter-Bold.ttf */,
+				1CE8D6832A1F558D0082D8C1 /* Inter-ExtraBold.ttf */,
 				1CE8D6532A1D221F0082D8C1 /* Inter-Medium.ttf */,
 			);
 			path = Fonts;
@@ -125,8 +142,10 @@
 				1CE8D6662A1E26070082D8C1 /* CustomStepperButton.swift */,
 				1CE8D6682A1E262E0082D8C1 /* CustomStepperLabel.swift */,
 				1CE8D6642A1E14BF0082D8C1 /* BalanceLabel.swift */,
+				1CE8D6812A1F52C20082D8C1 /* ConnectionErrorLabel.swift */,
 				1CE8D66A2A1E2C4E0082D8C1 /* CustomButton.swift */,
 				1CE8D66E2A1E8E9F0082D8C1 /* NotificationView.swift */,
+				1CE8D6792A1EACF40082D8C1 /* LoadingView.swift */,
 			);
 			path = Trade;
 			sourceTree = "<group>";
@@ -157,6 +176,24 @@
 			path = "Currency Pair";
 			sourceTree = "<group>";
 		};
+		1CE8D67B2A1F499C0082D8C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1CE8D67C2A1F499C0082D8C1 /* SystemConfiguration.framework */,
+				22C177FCE53664FA5E15BC3D /* Pods_TradeApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4AED13E3952036301A3BCBB7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6CDEFF66AB449A8E825D62FC /* Pods-TradeApp.debug.xcconfig */,
+				AE48F26D07EE642A65830C84 /* Pods-TradeApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,9 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CE8D6302A1D0B180082D8C1 /* Build configuration list for PBXNativeTarget "TradeApp" */;
 			buildPhases = (
+				66780D815AE621FA502D03BC /* [CP] Check Pods Manifest.lock */,
 				1CE8D6182A1D0B160082D8C1 /* Sources */,
 				1CE8D6192A1D0B160082D8C1 /* Frameworks */,
 				1CE8D61A2A1D0B160082D8C1 /* Resources */,
+				544DA3D83508441A4C37343F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -226,10 +265,53 @@
 				1CE8D62C2A1D0B180082D8C1 /* LaunchScreen.storyboard in Resources */,
 				1CE8D6552A1D221F0082D8C1 /* Inter-Medium.ttf in Resources */,
 				1CE8D6292A1D0B180082D8C1 /* Assets.xcassets in Resources */,
+				1CE8D6842A1F558D0082D8C1 /* Inter-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		544DA3D83508441A4C37343F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TradeApp/Pods-TradeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TradeApp/Pods-TradeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TradeApp/Pods-TradeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66780D815AE621FA502D03BC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TradeApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1CE8D6182A1D0B160082D8C1 /* Sources */ = {
@@ -251,8 +333,10 @@
 				1CE8D63F2A1D1C630082D8C1 /* TradeModel.swift in Sources */,
 				1CE8D6412A1D1C930082D8C1 /* TradeViewModel.swift in Sources */,
 				1CE8D65F2A1E01950082D8C1 /* Animations.swift in Sources */,
+				1CE8D6822A1F52C20082D8C1 /* ConnectionErrorLabel.swift in Sources */,
 				1CE8D6222A1D0B160082D8C1 /* SceneDelegate.swift in Sources */,
 				1CE8D66B2A1E2C4E0082D8C1 /* CustomButton.swift in Sources */,
+				1CE8D67A2A1EACF40082D8C1 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +470,7 @@
 		};
 		1CE8D6312A1D0B180082D8C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CDEFF66AB449A8E825D62FC /* Pods-TradeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -414,6 +499,7 @@
 		};
 		1CE8D6322A1D0B180082D8C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE48F26D07EE642A65830C84 /* Pods-TradeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -15,6 +15,7 @@ extension UIColor {
     static let red = UIColor(named: "Red")
     static let text = UIColor(named: "Text")
     static let additionalText = UIColor(named: "AdditionalText")
+    static let loadingBG = UIColor(named: "LoadingBG")
   }
 }
 
