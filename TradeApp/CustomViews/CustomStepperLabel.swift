@@ -106,8 +106,11 @@ class CustomUITextField: UITextField {
 
 extension StepperLabel: UITextFieldDelegate {
   func textFieldDidBeginEditing(_ textField: UITextField) {
-    print("Началось редактирование")
-    self.textField.show()
+    if subLabel.text == "Timer" {
+      self.textField.show(placeholder: "00:00")
+    } else if subLabel.text == "Investment" {
+      self.textField.show(placeholder: "0")
+    }
   }
   
   func textFieldDidEndEditing(_ textField: UITextField) {
@@ -117,12 +120,12 @@ extension StepperLabel: UITextFieldDelegate {
 }
 
 extension CustomUITextField {
-  func show() {
-    UIView.animate(withDuration: 0.3, delay: 0) {
+  func show(placeholder: String) {
+    UIView.animate(withDuration: 0.1, delay: 0) {
       self.alpha = 1
       self.textColor = UIColor.Theme.additionalText
       self.backgroundColor = UIColor.Theme.additionalBG
-      self.placeholder = "00:00"
+      self.placeholder = placeholder
     }
   }
   
