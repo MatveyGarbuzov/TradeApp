@@ -22,10 +22,17 @@ extension UIColor {
 
 // Extension to format numbers. (e.g: 10000 -> "10 000")
 extension Int {
-  func formatted() -> String {
+  func formattedWithSpace() -> String {
     let formatter = NumberFormatter()
     formatter.numberStyle = .decimal
     formatter.groupingSeparator = " "
+    return formatter.string(from: NSNumber(value: self)) ?? "\(self)"
+  }
+  
+  func formattedWithComma() -> String {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .decimal
+    formatter.groupingSeparator = ","
     return formatter.string(from: NSNumber(value: self)) ?? "\(self)"
   }
 }

@@ -13,7 +13,7 @@ class TradeViewModel {
   var investmentStepper = Stepper(currentValue: 1000)
   
   var balanceText: String {
-    return balance.currentBalance.formatted()
+    return balance.currentBalance.formattedWithSpace()
   }
   
   var timerStepperText: String {
@@ -21,7 +21,7 @@ class TradeViewModel {
   }
   
   var investmentStepperText: String {
-    return "\(investmentStepper.currentValue)"
+    return investmentStepper.currentValue.formattedWithComma()
   }
   
   func changeBalance(with value: Int) {
