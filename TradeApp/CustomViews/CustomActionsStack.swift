@@ -167,7 +167,7 @@ class CustomActionsStack: UIStackView {
   }
   
   @objc func buyButtonPressed(_ sender: UIView) {
-    var investValue = viewModel?.investmentStepper.currentValue ?? 0
+    let investValue = viewModel?.investmentStepper.currentValue ?? 0
     if investValue > 0 {
       // Show success notification
       showNotification()

@@ -110,8 +110,8 @@
 			children = (
 				1CE8D65A2A1D2FC30082D8C1 /* ViewController.swift */,
 				1CE8D6602A1E01C70082D8C1 /* App */,
-				1CE8D6702A1E9D910082D8C1 /* Currency Pair */,
-				1CE8D6572A1D28E50082D8C1 /* Trade */,
+				1CE8D6892A20C6D60082D8C1 /* Screens */,
+				1CE8D68A2A20C7040082D8C1 /* CustomViews */,
 				1CE8D6612A1E02530082D8C1 /* Sources */,
 				1CE8D6422A1D1F890082D8C1 /* Extensions.swift */,
 				1CE8D65E2A1E01950082D8C1 /* Animations.swift */,
@@ -140,15 +140,6 @@
 				1CE8D66C2A1E342A0082D8C1 /* Model.swift */,
 				1CE8D6402A1D1C930082D8C1 /* TradeViewModel.swift */,
 				1CE8D63C2A1D13550082D8C1 /* index.html */,
-				1CE8D6662A1E26070082D8C1 /* CustomStepperButton.swift */,
-				1CE8D65C2A1D45DB0082D8C1 /* CustomActionsStack.swift */,
-				1CE8D6622A1E06630082D8C1 /* CustomLabel.swift */,
-				1CE8D6682A1E262E0082D8C1 /* CustomStepperLabel.swift */,
-				1CE8D6642A1E14BF0082D8C1 /* BalanceLabel.swift */,
-				1CE8D6812A1F52C20082D8C1 /* ConnectionErrorLabel.swift */,
-				1CE8D66A2A1E2C4E0082D8C1 /* CustomButton.swift */,
-				1CE8D66E2A1E8E9F0082D8C1 /* NotificationView.swift */,
-				1CE8D6792A1EACF40082D8C1 /* LoadingView.swift */,
 			);
 			path = Trade;
 			sourceTree = "<group>";
@@ -186,6 +177,31 @@
 				22C177FCE53664FA5E15BC3D /* Pods_TradeApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1CE8D6892A20C6D60082D8C1 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				1CE8D6702A1E9D910082D8C1 /* Currency Pair */,
+				1CE8D6572A1D28E50082D8C1 /* Trade */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		1CE8D68A2A20C7040082D8C1 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				1CE8D6662A1E26070082D8C1 /* CustomStepperButton.swift */,
+				1CE8D65C2A1D45DB0082D8C1 /* CustomActionsStack.swift */,
+				1CE8D6622A1E06630082D8C1 /* CustomLabel.swift */,
+				1CE8D6682A1E262E0082D8C1 /* CustomStepperLabel.swift */,
+				1CE8D6642A1E14BF0082D8C1 /* BalanceLabel.swift */,
+				1CE8D6812A1F52C20082D8C1 /* ConnectionErrorLabel.swift */,
+				1CE8D66A2A1E2C4E0082D8C1 /* CustomButton.swift */,
+				1CE8D66E2A1E8E9F0082D8C1 /* NotificationView.swift */,
+				1CE8D6792A1EACF40082D8C1 /* LoadingView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		4AED13E3952036301A3BCBB7 /* Pods */ = {
