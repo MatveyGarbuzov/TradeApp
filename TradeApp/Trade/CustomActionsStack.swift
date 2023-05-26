@@ -167,10 +167,19 @@ class CustomActionsStack: UIStackView {
   }
   
   @objc func buyButtonPressed(_ sender: UIView) {
-    if viewModel?.investmentStepper.currentValue ?? 0 > 0 {
+    var investValue = viewModel?.investmentStepper.currentValue ?? 0
+    if investValue > 0 {
+      // Show success notification
       showNotification()
     }
-    viewModel?.changeBalance(with: viewModel?.investmentStepper.currentValue ?? 0)
+    
+    viewModel?.changeBalance(with: -investValue)
+    
+    let random = Int.random(in: 0...1)
+    if random % 2 == 1 {
+      viewModel?.changeBalance(with: Int(Double(investValue) * 1.7))
+    }
+    
     delegate?.updateBalanceLabel()
     
     // Checking that the investment is larger than the balance.
