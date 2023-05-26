@@ -33,6 +33,7 @@ class TradeViewController: UIViewController {
     setupConstraints()
     setupView()
     setupNavBar()
+    setupKeyboard()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +41,48 @@ class TradeViewController: UIViewController {
     setupLoadingView()
     updateView()
     title = "Trade"
+  }
+  
+  private func setupKeyboard() {
+    NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector:      #selector(handleKeyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    
+    
+    let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+    view.addGestureRecognizer(tap)
+  }
+  
+  @objc private func handleKeyboardWillShow(notification: Notification) {
+    guard let keyboardFrame = getKeyboardFrame(from: notification.userInfo) else { return }
+    let offset = keyboardFrame.height
+    actionStack.snp.updateConstraints { make in
+      make.bottom.equalToSuperview().inset(offset)
+    }
+    UIView.animate(withDuration: 0.3, animations: {
+      self.view.layoutIfNeeded()
+      self.actionStack.backgroundColor = UIColor.Theme.actionStackBG
+    })
+  }
+  
+  @objc private func handleKeyboardWillHide(notification: Notification) {
+    actionStack.snp.updateConstraints { make in
+      make.bottom.equalToSuperview()
+    }
+    UIView.animate(withDuration: 0.3, animations: {
+      self.view.layoutIfNeeded()
+      self.actionStack.backgroundColor = .clear
+    })
+  }
+  
+  @objc func dismissKeyboard() {
+    view.endEditing(true)
+  }
+  
+  // MARK: - Helper
+  private func getKeyboardFrame(from userInfo: [AnyHashable : Any]?) -> CGRect? {
+    guard let userInfo = userInfo else { return nil }
+    guard let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return nil }
+    return self.view.convert(keyboardFrame, from: nil)
   }
   
   func setupNavBar() {
@@ -91,11 +134,17 @@ class TradeViewController: UIViewController {
       }
     }
     
+    // Calculate stackHeight to correctly fit the screen
+    let balanceLabelHeight = 57.0
+    let webViewHeight = view.bounds.size.width * 0.85
+    let screenHeight = view.bounds.size.height
+    let stackHeight = (screenHeight * 0.87 - balanceLabelHeight - webViewHeight)
+    
     actionStack.snp.makeConstraints { make in
-      make.top.equalTo(webView.snp.bottom).offset(16)
-      make.bottom.equalToSuperview()
+      make.bottom.equalTo(view.snp.bottom)
+      make.height.equalTo(stackHeight)
       make.centerX.equalToSuperview()
-      make.width.equalToSuperview().multipliedBy(0.9)
+      make.width.equalToSuperview()
     }
   }
   

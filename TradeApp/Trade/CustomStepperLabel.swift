@@ -7,13 +7,31 @@
 
 import UIKit
 
-protocol CustomButtonDelegate: AnyObject {
+protocol StepperDelegate: AnyObject {
   func leftButtonTapped(sender: StepperLabel)
   func rightButtonTapped(sender: StepperLabel)
+  func update(sender: StepperLabel)
 }
 
 class StepperLabel: CustomLabel {
-  weak var delegate: CustomButtonDelegate?
+  weak var stepperDelegate: StepperDelegate?
+  var viewModel: TradeViewModel? {
+    didSet {
+      updateUI()
+    }
+  }
+  
+  let textField: CustomUITextField = {
+    let textField = CustomUITextField()
+    textField.font = UIFont.appFontBold(ofSize: 16)
+    textField.textAlignment = .center
+    textField.textColor = UIColor.Theme.additionalText
+    textField.backgroundColor = .clear//UIColor.Theme.additionalBG
+    textField.textColor = .clear
+    textField.keyboardType = .numberPad
+    
+    return textField
+  }()
   
   let leftStepper = CustomStepper()
   let rightStepper = CustomStepper()
@@ -28,6 +46,8 @@ class StepperLabel: CustomLabel {
   }
   
   private func setupViews() {
+    textField.delegate = self
+    
     leftStepper.setImage(UIImage(systemName: "minus.circle")!)
     leftStepper.buttonActionHandler = { _ in
       self.leftButtonTapped()
@@ -40,6 +60,7 @@ class StepperLabel: CustomLabel {
     
     super.addSubview(leftStepper)
     super.addSubview(rightStepper)
+    super.addSubview(textField)
     
     leftStepper.snp.makeConstraints { make in
       make.left.equalToSuperview().offset(15)
@@ -54,16 +75,62 @@ class StepperLabel: CustomLabel {
       make.height.equalTo(super.label.snp.height)
       make.bottom.equalTo(super.label.snp.bottom)
     }
+    
+    textField.snp.makeConstraints { make in
+      make.edges.equalTo(super.label).inset(5)
+    }
   }
   
   @objc private func leftButtonTapped() {
-    print("left")
-    delegate?.leftButtonTapped(sender: self)
+    stepperDelegate?.leftButtonTapped(sender: self)
   }
 
   @objc private func rightButtonTapped() {
-    print("right")
-    delegate?.rightButtonTapped(sender: self)
+    stepperDelegate?.rightButtonTapped(sender: self)
   }
+  
+  func updateUI() {
+    stepperDelegate?.update(sender: self)
+  }
+}
 
+// Disable paste action
+class CustomUITextField: UITextField {
+  override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+    if action == #selector(UIResponderStandardEditActions.paste(_:)) {
+      return false
+    }
+    return super.canPerformAction(action, withSender: sender)
+  }
+}
+
+extension StepperLabel: UITextFieldDelegate {
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    print("Началось редактирование")
+    self.textField.show()
+  }
+  
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    self.textField.hide()
+    updateUI()
+  }
+}
+
+extension CustomUITextField {
+  func show() {
+    UIView.animate(withDuration: 0.3, delay: 0) {
+      self.alpha = 1
+      self.textColor = UIColor.Theme.additionalText
+      self.backgroundColor = UIColor.Theme.additionalBG
+      self.placeholder = "00:00"
+    }
+  }
+  
+  func hide() {
+    UIView.animate(withDuration: 0.3, delay: 0) {
+      self.backgroundColor = .clear
+      self.textColor = .clear
+      self.placeholder = ""
+    }
+  }
 }

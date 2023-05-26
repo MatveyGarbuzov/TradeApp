@@ -67,7 +67,8 @@ class CustomActionsStack: UIStackView {
     return stack
   }()
 
-  private let spacer = UIView()
+  private let topSpacer = UIView()
+  private let bottomSpacer = UIView()
   
   init() {
     super.init(frame: .zero)
@@ -92,9 +93,12 @@ class CustomActionsStack: UIStackView {
     self.alignment = .center
     self.spacing = 8
     
-    timerStepper.delegate = self
-    investmentStepper.delegate = self
+    timerStepper.viewModel = viewModel
+    timerStepper.stepperDelegate = self
     timerStepper.updateSubLabel("Timer")
+    
+    investmentStepper.viewModel = viewModel
+    investmentStepper.stepperDelegate = self
     investmentStepper.updateSubLabel("Investment")
     
     sellButton.backgroundColor = UIColor.Theme.red
@@ -107,7 +111,10 @@ class CustomActionsStack: UIStackView {
   
   private func updateUI() {
     timerStepper.updateLabel(viewModel?.timerStepperText ?? "00:00")
+    timerStepper.textField.text = String(viewModel?.timerStepper.currentValue ?? 0)
+    
     investmentStepper.updateLabel(viewModel?.investmentStepperText ?? "0")
+    investmentStepper.textField.text = String(viewModel?.investmentStepper.currentValue ?? 0)
   }
   
   private func setupConstraints() {
@@ -117,24 +124,23 @@ class CustomActionsStack: UIStackView {
     buySellHStack.addArrangedSubview(sellButton)
     buySellHStack.addArrangedSubview(buyButton)
     
+    addArrangedSubview(topSpacer)
     addArrangedSubview(currencyPairsButton)
     addArrangedSubview(steppersHStack)
     addArrangedSubview(buySellHStack)
-    addArrangedSubview(spacer)
+    addArrangedSubview(bottomSpacer)
     
-    currencyPairsButton.snp.makeConstraints { make in
-      make.height.equalTo(60)
+    topSpacer.snp.makeConstraints { make in
+      make.height.equalTo(10)
       make.width.equalToSuperview()
     }
     
-    steppersHStack.snp.makeConstraints { make in
-      make.height.equalTo(60)
-      make.width.equalToSuperview()
-    }
-    
-    buySellHStack.snp.makeConstraints { make in
-      make.height.equalTo(60)
-      make.width.equalToSuperview()
+    let height = min(superview?.bounds.size.height ?? 60.0, 60.0)
+    [currencyPairsButton, steppersHStack, buySellHStack].forEach { view in
+      view.snp.makeConstraints { make in
+        make.height.equalTo(height)
+        make.width.equalToSuperview().multipliedBy(0.9)
+      }
     }
     
     [timerStepper, investmentStepper, sellButton, buyButton].forEach({ view in
@@ -188,7 +194,21 @@ class CustomActionsStack: UIStackView {
   }
 }
 
-extension CustomActionsStack: CustomButtonDelegate {
+extension CustomActionsStack: StepperDelegate {
+  func update(sender: StepperLabel) {
+    print("Update from delegate")
+    let senderText = sender.subLabel.text
+    
+    let value = Int(sender.textField.text ?? "0") ?? 0
+    if senderText == "Timer" {
+      viewModel?.setTimerStepperCurrentValue(with: value)
+    } else if senderText == "Investment" {
+      viewModel?.setInvestmentStepperCurrentValue(with: value)
+    }
+    
+    updateUI()
+  }
+  
   func leftButtonTapped(sender: StepperLabel) {
     let senderText = sender.subLabel.text
     

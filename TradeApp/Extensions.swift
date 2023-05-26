@@ -16,6 +16,7 @@ extension UIColor {
     static let text = UIColor(named: "Text")
     static let additionalText = UIColor(named: "AdditionalText")
     static let loadingBG = UIColor(named: "LoadingBG")
+    static let actionStackBG = UIColor(named: "ActionStackBG")
   }
 }
 
@@ -32,8 +33,9 @@ extension Int {
 // Extension to format int to time format mm:ss (e.g: 75 -> 01:15)
 extension Int {
   func formatToTime() -> String {
-    let minutes = self / 60
-    let seconds = self % 60
+    let curr = self % 3600
+    let minutes = curr / 60
+    let seconds = curr % 60
     
     return String(format: "%02d:%02d", minutes, seconds)
   }

@@ -9,7 +9,7 @@ import Foundation
 
 class TradeViewModel {
   var balance = Balance(currentBalance: 10000)
-  var timerStepper = Stepper(currentValue: 4)
+  var timerStepper = Stepper(currentValue: 1)
   var investmentStepper = Stepper(currentValue: 1000)
   
   var balanceText: String {
@@ -50,5 +50,13 @@ class TradeViewModel {
         investmentStepper.currentValue += value
       }
     }
+  }
+  
+  func setTimerStepperCurrentValue(with value: Int) {
+    timerStepper.currentValue = value
+  }
+  
+  func setInvestmentStepperCurrentValue(with value: Int) {
+    investmentStepper.currentValue = value
   }
 }
