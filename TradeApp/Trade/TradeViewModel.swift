@@ -25,7 +25,7 @@ class TradeViewModel {
   }
   
   func changeBalance(with value: Int) {
-    balance.currentBalance -= value
+    balance.currentBalance += value
   }
   
   func changeTimerStepper(with value: Int) {
@@ -57,6 +57,15 @@ class TradeViewModel {
   }
   
   func setInvestmentStepperCurrentValue(with value: Int) {
-    investmentStepper.currentValue = value
+    // Check that the investment value doesn't go out of balance
+    if valueIsUnderBalance(value) {
+      investmentStepper.currentValue = value
+    } else {
+      investmentStepper.currentValue = balance.currentBalance
+    }
+  }
+  
+  private func valueIsUnderBalance(_ value: Int) -> Bool {
+    value <= balance.currentBalance
   }
 }
