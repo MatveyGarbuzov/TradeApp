@@ -11,7 +11,7 @@ protocol BalanceChangedDelegate: AnyObject {
     func updateBalanceLabel()
 }
 
-class CustomActionsStack: UIStackView {
+class CustomActionsStack: UIView {
   weak var delegate: BalanceChangedDelegate?
   var viewModel: TradeViewModel? {
     didSet {
@@ -21,6 +21,7 @@ class CustomActionsStack: UIStackView {
   
   let haptic = HapticGenerator.shared
   
+  let stackView = UIStackView()
   private let timerStepper = StepperLabel()
   private let investmentStepper = StepperLabel()
   private let sellButton = CustomButton()
@@ -67,11 +68,12 @@ class CustomActionsStack: UIStackView {
     return stack
   }()
 
-  private let topSpacer = UIView()
+  let topSpacer = UIView()
   private let bottomSpacer = UIView()
   
-  init() {
-    super.init(frame: .zero)
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    
     setupViews()
     setupConstraints()
   }
@@ -83,15 +85,15 @@ class CustomActionsStack: UIStackView {
   override func layoutSubviews() {
     super.layoutSubviews()
     // Getting button width to place title in center
-    let buttonWidth = self.viewWithTag(1)?.frame.size.width ?? 0
-    
-    currencyPairsButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: buttonWidth/2 - 35, bottom: 0, trailing: 15)
+    let buttonWidth = self.frame.size.width
+    let textWidth = buttonWidth * 0.29
+    currencyPairsButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: (buttonWidth-textWidth)/2, bottom: 0, trailing: 15)
   }
   
   private func setupViews() {
-    self.axis = .vertical
-    self.alignment = .center
-    self.spacing = 8
+    stackView.axis = .vertical
+    stackView.alignment = .center
+    stackView.spacing = 8
     
     timerStepper.viewModel = viewModel
     timerStepper.stepperDelegate = self
@@ -118,27 +120,23 @@ class CustomActionsStack: UIStackView {
   }
   
   private func setupConstraints() {
+    self.addSubview(stackView)
+    
     steppersHStack.addArrangedSubview(timerStepper)
     steppersHStack.addArrangedSubview(investmentStepper)
     
     buySellHStack.addArrangedSubview(sellButton)
     buySellHStack.addArrangedSubview(buyButton)
     
-    addArrangedSubview(topSpacer)
-    addArrangedSubview(currencyPairsButton)
-    addArrangedSubview(steppersHStack)
-    addArrangedSubview(buySellHStack)
-    addArrangedSubview(bottomSpacer)
-    
-    topSpacer.snp.makeConstraints { make in
-      make.height.equalTo(10)
-      make.width.equalToSuperview()
-    }
-    
-    let height = min(superview?.bounds.size.height ?? 60.0, 60.0)
+    stackView.addArrangedSubview(topSpacer)
+    stackView.addArrangedSubview(currencyPairsButton)
+    stackView.addArrangedSubview(steppersHStack)
+    stackView.addArrangedSubview(buySellHStack)
+    stackView.addArrangedSubview(bottomSpacer)
+
     [currencyPairsButton, steppersHStack, buySellHStack].forEach { view in
       view.snp.makeConstraints { make in
-        make.height.equalTo(height)
+        make.height.equalTo(self).dividedBy(3.6)
         make.width.equalToSuperview().multipliedBy(0.9)
       }
     }
@@ -148,6 +146,10 @@ class CustomActionsStack: UIStackView {
         make.height.equalToSuperview()
       }
     })
+    
+    stackView.snp.makeConstraints { make in
+      make.edges.equalToSuperview()
+    }
   }
   
   private func showNotification() {

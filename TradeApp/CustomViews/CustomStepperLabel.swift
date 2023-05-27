@@ -77,7 +77,7 @@ class StepperLabel: CustomLabel {
     }
     
     textField.snp.makeConstraints { make in
-      make.edges.equalTo(super.label).inset(5)
+      make.edges.equalTo(super.label).inset(10)
     }
   }
   

@@ -40,7 +40,6 @@ class TradeViewController: UIViewController {
     super.viewWillAppear(animated)
     setupLoadingView()
     updateView()
-    title = "Trade"
   }
   
   private func setupKeyboard() {
@@ -65,9 +64,14 @@ class TradeViewController: UIViewController {
   }
   
   @objc private func handleKeyboardWillHide(notification: Notification) {
+    let balanceLabelHeight = 57.0
+    let webViewHeight = view.bounds.size.width * 0.9
+    let screenHeight = view.bounds.size.height
+    let stackHeight = (screenHeight * 0.8 - balanceLabelHeight - webViewHeight) * 0.85
     actionStack.snp.updateConstraints { make in
-      make.bottom.equalToSuperview()
+      make.bottom.equalTo(view.safeAreaInsets.bottom).offset(-screenHeight*0.09)
     }
+    
     UIView.animate(withDuration: 0.3, animations: {
       self.view.layoutIfNeeded()
       self.actionStack.backgroundColor = .clear
@@ -121,7 +125,7 @@ class TradeViewController: UIViewController {
     
     webView.snp.makeConstraints { make in
       make.centerX.equalToSuperview()
-      make.top.equalTo(balanceLabel.snp.bottom).offset(25)
+      make.top.equalTo(balanceLabel.snp.bottom).offset(20)
       make.width.equalTo(view.snp.width).offset(10)
       make.height.equalTo(view.snp.width).multipliedBy(0.85)
     }
@@ -138,10 +142,10 @@ class TradeViewController: UIViewController {
     let balanceLabelHeight = 57.0
     let webViewHeight = view.bounds.size.width * 0.85
     let screenHeight = view.bounds.size.height
-    let stackHeight = (screenHeight * 0.87 - balanceLabelHeight - webViewHeight)
+    let stackHeight = (screenHeight * 0.8 - balanceLabelHeight - webViewHeight) * 0.85
     
     actionStack.snp.makeConstraints { make in
-      make.bottom.equalTo(view.snp.bottom)
+      make.bottom.equalTo(view.safeAreaInsets.bottom).offset(-screenHeight*0.09)
       make.height.equalTo(stackHeight)
       make.centerX.equalToSuperview()
       make.width.equalToSuperview()
@@ -155,6 +159,11 @@ class TradeViewController: UIViewController {
     balanceLabel.viewModel = viewModel
     actionStack.viewModel = viewModel
     actionStack.delegate = self
+  }
+  
+  func viewIsReady() {
+    tabBarController?.tabBar.isHidden = false
+    title = "Trade"
   }
 }
 
@@ -181,6 +190,7 @@ extension TradeViewController: WKNavigationDelegate {
   func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
     loadingView?.removeFromSuperview()
     loadingView = nil
+    viewIsReady()
   }
   
   func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {

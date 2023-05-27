@@ -35,6 +35,7 @@
 		1CE8D6822A1F52C20082D8C1 /* ConnectionErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D6812A1F52C20082D8C1 /* ConnectionErrorLabel.swift */; };
 		1CE8D6842A1F558D0082D8C1 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CE8D6832A1F558D0082D8C1 /* Inter-ExtraBold.ttf */; };
 		1CE8D6862A1F62DF0082D8C1 /* HapticGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D6852A1F62DF0082D8C1 /* HapticGenerator.swift */; };
+		1CE8D68D2A20CBCC0082D8C1 /* CurrencyPairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D68C2A20CBCC0082D8C1 /* CurrencyPairViewController.swift */; };
 		F15B13710A4DEBD6AACAFC62 /* Pods_TradeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C177FCE53664FA5E15BC3D /* Pods_TradeApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		1CE8D6812A1F52C20082D8C1 /* ConnectionErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionErrorLabel.swift; sourceTree = "<group>"; };
 		1CE8D6832A1F558D0082D8C1 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
 		1CE8D6852A1F62DF0082D8C1 /* HapticGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticGenerator.swift; sourceTree = "<group>"; };
+		1CE8D68C2A20CBCC0082D8C1 /* CurrencyPairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairViewController.swift; sourceTree = "<group>"; };
 		22C177FCE53664FA5E15BC3D /* Pods_TradeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TradeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CDEFF66AB449A8E825D62FC /* Pods-TradeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeApp.debug.xcconfig"; path = "Target Support Files/Pods-TradeApp/Pods-TradeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AE48F26D07EE642A65830C84 /* Pods-TradeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradeApp.release.xcconfig"; path = "Target Support Files/Pods-TradeApp/Pods-TradeApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		1CE8D6702A1E9D910082D8C1 /* Currency Pair */ = {
 			isa = PBXGroup;
 			children = (
+				1CE8D68C2A20CBCC0082D8C1 /* CurrencyPairViewController.swift */,
 			);
 			path = "Currency Pair";
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				1CE8D6672A1E26070082D8C1 /* CustomStepperButton.swift in Sources */,
 				1CE8D65D2A1D45DB0082D8C1 /* CustomActionsStack.swift in Sources */,
 				1CE8D65B2A1D2FC30082D8C1 /* ViewController.swift in Sources */,
+				1CE8D68D2A20CBCC0082D8C1 /* CurrencyPairViewController.swift in Sources */,
 				1CE8D66F2A1E8E9F0082D8C1 /* NotificationView.swift in Sources */,
 				1CE8D6432A1D1F890082D8C1 /* Extensions.swift in Sources */,
 				1CE8D66D2A1E342A0082D8C1 /* Model.swift in Sources */,

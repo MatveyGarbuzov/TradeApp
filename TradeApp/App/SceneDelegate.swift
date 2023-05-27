@@ -14,13 +14,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     guard let windowScene = (scene as? UIWindowScene) else { return }
+
+    let tabBarController = UITabBarController()
+    
+    let firstVC = UINavigationController(rootViewController: TradeViewController())
+    firstVC.tabBarItem = UITabBarItem(title: "Trade", image: UIImage(named: "Trade"), tag: 0)
+    
+    
+    let secondVC = CurrencyPairViewController()
+    secondVC.tabBarItem = UITabBarItem(title: "Top", image: UIImage(named: "Top"), tag: 1)
+
+    tabBarController.viewControllers = [firstVC, secondVC]
+    tabBarController.tabBar.tintColor = UIColor.Theme.green
+    tabBarController.tabBar.isHidden = true
     
     let window = UIWindow(windowScene: windowScene)
-    let navigationController = UINavigationController(rootViewController: TradeViewController())
-    
-    window.rootViewController = navigationController
-    self.window = window
+    window.rootViewController = tabBarController
     window.makeKeyAndVisible()
+    self.window = window
   }
 
   func sceneDidDisconnect(_ scene: UIScene) {
