@@ -11,6 +11,8 @@
 		1C9391DA2A221C90003143CD /* TradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9391D92A221C90003143CD /* TradeCell.swift */; };
 		1C9391DC2A221CAC003143CD /* TopTraderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9391DB2A221CAC003143CD /* TopTraderModel.swift */; };
 		1C9391DE2A221CB4003143CD /* TopTraderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9391DD2A221CB4003143CD /* TopTraderViewModel.swift */; };
+		1C9AC7CF2A23BFA30017E121 /* CurrencyPairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9AC7CE2A23BFA30017E121 /* CurrencyPairViewModel.swift */; };
+		1C9AC7D22A23BFD00017E121 /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9AC7D12A23BFD00017E121 /* CustomCollectionCell.swift */; };
 		1CE8D6202A1D0B160082D8C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D61F2A1D0B160082D8C1 /* AppDelegate.swift */; };
 		1CE8D6222A1D0B160082D8C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D6212A1D0B160082D8C1 /* SceneDelegate.swift */; };
 		1CE8D6242A1D0B160082D8C1 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D6232A1D0B160082D8C1 /* TradeViewController.swift */; };
@@ -48,6 +50,8 @@
 		1C9391D92A221C90003143CD /* TradeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeCell.swift; sourceTree = "<group>"; };
 		1C9391DB2A221CAC003143CD /* TopTraderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTraderModel.swift; sourceTree = "<group>"; };
 		1C9391DD2A221CB4003143CD /* TopTraderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTraderViewModel.swift; sourceTree = "<group>"; };
+		1C9AC7CE2A23BFA30017E121 /* CurrencyPairViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairViewModel.swift; sourceTree = "<group>"; };
+		1C9AC7D12A23BFD00017E121 /* CustomCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
 		1CE8D61C2A1D0B160082D8C1 /* TradeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CE8D61F2A1D0B160082D8C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CE8D6212A1D0B160082D8C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +135,14 @@
 			path = TopTraders;
 			sourceTree = "<group>";
 		};
+		1C9AC7D02A23BFC40017E121 /* CurrencyPair */ = {
+			isa = PBXGroup;
+			children = (
+				1C9AC7D12A23BFD00017E121 /* CustomCollectionCell.swift */,
+			);
+			path = CurrencyPair;
+			sourceTree = "<group>";
+		};
 		1CE8D6132A1D0B160082D8C1 = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				1CE8D68C2A20CBCC0082D8C1 /* CurrencyPairViewController.swift */,
+				1C9AC7CE2A23BFA30017E121 /* CurrencyPairViewModel.swift */,
 			);
 			path = "Currency Pair";
 			sourceTree = "<group>";
@@ -237,6 +250,7 @@
 		1CE8D68A2A20C7040082D8C1 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				1C9AC7D02A23BFC40017E121 /* CurrencyPair */,
 				1C9391D82A221C4C003143CD /* TopTraders */,
 				1C9391D72A221C3E003143CD /* Trade */,
 			);
@@ -394,6 +408,8 @@
 				1CE8D63F2A1D1C630082D8C1 /* TradeModel.swift in Sources */,
 				1CE8D6412A1D1C930082D8C1 /* TradeViewModel.swift in Sources */,
 				1CE8D65F2A1E01950082D8C1 /* Animations.swift in Sources */,
+				1C9AC7CF2A23BFA30017E121 /* CurrencyPairViewModel.swift in Sources */,
+				1C9AC7D22A23BFD00017E121 /* CustomCollectionCell.swift in Sources */,
 				1CE8D6822A1F52C20082D8C1 /* ConnectionErrorLabel.swift in Sources */,
 				1C9391DA2A221C90003143CD /* TradeCell.swift in Sources */,
 				1CE8D6862A1F62DF0082D8C1 /* HapticGenerator.swift in Sources */,

@@ -35,7 +35,6 @@ class TopTradersViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-
     setupNavBar()
     setupTableView()
     setupTableViewTop()

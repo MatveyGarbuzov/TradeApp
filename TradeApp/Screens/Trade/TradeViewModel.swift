@@ -9,6 +9,7 @@ import Foundation
 
 class TradeViewModel {
   let title = "Trade"
+  var currencyPair = "GPB/USD"
   var balance = Balance(currentBalance: 10000)
   var timerStepper = Stepper(currentValue: 1)
   var investmentStepper = Stepper(currentValue: 1000)

@@ -66,12 +66,9 @@ class TradeViewController: UIViewController {
   }
   
   @objc private func handleKeyboardWillHide(notification: Notification) {
-//    let balanceLabelHeight = 57.0
-//    let webViewHeight = view.bounds.size.width * 0.9
-    let screenHeight = view.bounds.size.height
-//    let stackHeight = (screenHeight * 0.8 - balanceLabelHeight - webViewHeight) * 0.85
+    let screenHeight = view.bounds.size.height * 0.09
     actionStack.snp.updateConstraints { make in
-      make.bottom.equalTo(view.safeAreaInsets.bottom).offset(-screenHeight*0.09)
+      make.bottom.equalTo(view.safeAreaInsets.bottom).offset(-screenHeight)
     }
     
     UIView.animate(withDuration: 0.3, animations: {
@@ -161,6 +158,7 @@ class TradeViewController: UIViewController {
     balanceLabel.viewModel = viewModel
     actionStack.viewModel = viewModel
     actionStack.delegate = self
+    actionStack.currencyDelegate = self
   }
   
   func viewIsReady() {
@@ -183,6 +181,21 @@ extension TradeViewController: UIScrollViewDelegate {
 extension TradeViewController: BalanceChangedDelegate {
   func updateBalanceLabel() {
     balanceLabel.updateUI()
+  }
+}
+
+extension TradeViewController: CurrencyPairDelegate {
+  func chooseCurrency() {
+    let currencyPairVC = CurrencyPairViewController()
+    currencyPairVC.delegate = self
+    currencyPairVC.tradeModel = viewModel
+    navigationController?.pushViewController(currencyPairVC, animated: true)
+  }
+}
+
+extension TradeViewController: UpdateViewModel {
+  func updateViewModel() {
+    actionStack.updateCurrencyPair()
   }
 }
 

@@ -11,8 +11,14 @@ protocol BalanceChangedDelegate: AnyObject {
     func updateBalanceLabel()
 }
 
+protocol CurrencyPairDelegate: AnyObject {
+  func chooseCurrency()
+}
+
 class CustomActionsStack: UIView {
   weak var delegate: BalanceChangedDelegate?
+  weak var currencyDelegate: CurrencyPairDelegate?
+  
   var viewModel: TradeViewModel? {
     didSet {
       updateUI()
@@ -37,7 +43,7 @@ class CustomActionsStack: UIView {
     config.imagePlacement = .trailing
     config.baseBackgroundColor = UIColor.Theme.additionalBG
     config.baseForegroundColor = UIColor.Theme.text
-    config.attributedTitle = AttributedString("GPB/USD", attributes: container)
+    config.attributedTitle = AttributedString(viewModel?.currencyPair ?? "GPB/USD", attributes: container)
     
     let button = UIButton(configuration: config)
     button.addTarget(self, action: #selector(currencyPairsButtonPressed), for: .touchUpInside)
@@ -48,6 +54,7 @@ class CustomActionsStack: UIView {
     
     return button
   }()
+  
   private let steppersHStack: UIStackView = {
     let stack = UIStackView()
     
@@ -58,6 +65,7 @@ class CustomActionsStack: UIView {
     
     return stack
   }()
+  
   private let buySellHStack: UIStackView = {
     let stack = UIStackView()
     stack.axis = .horizontal
@@ -88,6 +96,12 @@ class CustomActionsStack: UIView {
     let buttonWidth = self.frame.size.width
     let textWidth = buttonWidth * 0.29
     currencyPairsButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: (buttonWidth-textWidth)/2, bottom: 0, trailing: 15)
+  }
+  
+  func updateCurrencyPair() {
+    var container = AttributeContainer()
+    container.font = UIFont.appFontBold(ofSize: 16)
+    currencyPairsButton.configuration?.attributedTitle = AttributedString(viewModel?.currencyPair ?? "EUR/USD", attributes: container)
   }
   
   private func setupViews() {
@@ -164,6 +178,7 @@ class CustomActionsStack: UIView {
   
   @objc func currencyPairsButtonPressed(_ sender: UIView) {
     sender.animateInsidePress()
+    currencyDelegate?.chooseCurrency()
     updateUI()
     haptic.trigger()
   }
