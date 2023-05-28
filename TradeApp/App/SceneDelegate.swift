@@ -21,12 +21,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     firstVC.tabBarItem = UITabBarItem(title: "Trade", image: UIImage(named: "Trade"), tag: 0)
     
     
-    let secondVC = CurrencyPairViewController()
+    let secondVC = UINavigationController(rootViewController: TopTradersViewController())
     secondVC.tabBarItem = UITabBarItem(title: "Top", image: UIImage(named: "Top"), tag: 1)
 
     tabBarController.viewControllers = [firstVC, secondVC]
     tabBarController.tabBar.tintColor = UIColor.Theme.green
-    tabBarController.tabBar.isHidden = true
+    tabBarController.tabBar.backgroundColor = UIColor.Theme.tabBarBG
     
     let window = UIWindow(windowScene: windowScene)
     window.rootViewController = tabBarController

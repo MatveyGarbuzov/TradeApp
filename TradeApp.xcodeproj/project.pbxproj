@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C9391D62A221BB1003143CD /* TopTradersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9391D52A221BB1003143CD /* TopTradersViewController.swift */; };
+		1C9391DA2A221C90003143CD /* TradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9391D92A221C90003143CD /* TradeCell.swift */; };
+		1C9391DC2A221CAC003143CD /* TopTraderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9391DB2A221CAC003143CD /* TopTraderModel.swift */; };
+		1C9391DE2A221CB4003143CD /* TopTraderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9391DD2A221CB4003143CD /* TopTraderViewModel.swift */; };
 		1CE8D6202A1D0B160082D8C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D61F2A1D0B160082D8C1 /* AppDelegate.swift */; };
 		1CE8D6222A1D0B160082D8C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D6212A1D0B160082D8C1 /* SceneDelegate.swift */; };
 		1CE8D6242A1D0B160082D8C1 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D6232A1D0B160082D8C1 /* TradeViewController.swift */; };
@@ -40,6 +44,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C9391D52A221BB1003143CD /* TopTradersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTradersViewController.swift; sourceTree = "<group>"; };
+		1C9391D92A221C90003143CD /* TradeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeCell.swift; sourceTree = "<group>"; };
+		1C9391DB2A221CAC003143CD /* TopTraderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTraderModel.swift; sourceTree = "<group>"; };
+		1C9391DD2A221CB4003143CD /* TopTraderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTraderViewModel.swift; sourceTree = "<group>"; };
 		1CE8D61C2A1D0B160082D8C1 /* TradeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CE8D61F2A1D0B160082D8C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CE8D6212A1D0B160082D8C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +97,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C9391D42A221B9C003143CD /* Top Traders */ = {
+			isa = PBXGroup;
+			children = (
+				1C9391D52A221BB1003143CD /* TopTradersViewController.swift */,
+				1C9391DB2A221CAC003143CD /* TopTraderModel.swift */,
+				1C9391DD2A221CB4003143CD /* TopTraderViewModel.swift */,
+			);
+			path = "Top Traders";
+			sourceTree = "<group>";
+		};
+		1C9391D72A221C3E003143CD /* Trade */ = {
+			isa = PBXGroup;
+			children = (
+				1CE8D6662A1E26070082D8C1 /* CustomStepperButton.swift */,
+				1CE8D65C2A1D45DB0082D8C1 /* CustomActionsStack.swift */,
+				1CE8D6622A1E06630082D8C1 /* CustomLabel.swift */,
+				1CE8D6682A1E262E0082D8C1 /* CustomStepperLabel.swift */,
+				1CE8D6642A1E14BF0082D8C1 /* BalanceLabel.swift */,
+				1CE8D6812A1F52C20082D8C1 /* ConnectionErrorLabel.swift */,
+				1CE8D66A2A1E2C4E0082D8C1 /* CustomButton.swift */,
+				1CE8D66E2A1E8E9F0082D8C1 /* NotificationView.swift */,
+				1CE8D6792A1EACF40082D8C1 /* LoadingView.swift */,
+			);
+			path = Trade;
+			sourceTree = "<group>";
+		};
+		1C9391D82A221C4C003143CD /* TopTraders */ = {
+			isa = PBXGroup;
+			children = (
+				1C9391D92A221C90003143CD /* TradeCell.swift */,
+			);
+			path = TopTraders;
+			sourceTree = "<group>";
+		};
 		1CE8D6132A1D0B160082D8C1 = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +227,7 @@
 		1CE8D6892A20C6D60082D8C1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1C9391D42A221B9C003143CD /* Top Traders */,
 				1CE8D6702A1E9D910082D8C1 /* Currency Pair */,
 				1CE8D6572A1D28E50082D8C1 /* Trade */,
 			);
@@ -194,15 +237,8 @@
 		1CE8D68A2A20C7040082D8C1 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				1CE8D6662A1E26070082D8C1 /* CustomStepperButton.swift */,
-				1CE8D65C2A1D45DB0082D8C1 /* CustomActionsStack.swift */,
-				1CE8D6622A1E06630082D8C1 /* CustomLabel.swift */,
-				1CE8D6682A1E262E0082D8C1 /* CustomStepperLabel.swift */,
-				1CE8D6642A1E14BF0082D8C1 /* BalanceLabel.swift */,
-				1CE8D6812A1F52C20082D8C1 /* ConnectionErrorLabel.swift */,
-				1CE8D66A2A1E2C4E0082D8C1 /* CustomButton.swift */,
-				1CE8D66E2A1E8E9F0082D8C1 /* NotificationView.swift */,
-				1CE8D6792A1EACF40082D8C1 /* LoadingView.swift */,
+				1C9391D82A221C4C003143CD /* TopTraders */,
+				1C9391D72A221C3E003143CD /* Trade */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -343,6 +379,7 @@
 				1CE8D6452A1D20980082D8C1 /* Fonts.swift in Sources */,
 				1CE8D6652A1E14BF0082D8C1 /* BalanceLabel.swift in Sources */,
 				1CE8D6242A1D0B160082D8C1 /* TradeViewController.swift in Sources */,
+				1C9391DC2A221CAC003143CD /* TopTraderModel.swift in Sources */,
 				1CE8D6672A1E26070082D8C1 /* CustomStepperButton.swift in Sources */,
 				1CE8D65D2A1D45DB0082D8C1 /* CustomActionsStack.swift in Sources */,
 				1CE8D65B2A1D2FC30082D8C1 /* ViewController.swift in Sources */,
@@ -350,6 +387,7 @@
 				1CE8D66F2A1E8E9F0082D8C1 /* NotificationView.swift in Sources */,
 				1CE8D6432A1D1F890082D8C1 /* Extensions.swift in Sources */,
 				1CE8D66D2A1E342A0082D8C1 /* Model.swift in Sources */,
+				1C9391D62A221BB1003143CD /* TopTradersViewController.swift in Sources */,
 				1CE8D6202A1D0B160082D8C1 /* AppDelegate.swift in Sources */,
 				1CE8D6632A1E06630082D8C1 /* CustomLabel.swift in Sources */,
 				1CE8D6692A1E262E0082D8C1 /* CustomStepperLabel.swift in Sources */,
@@ -357,9 +395,11 @@
 				1CE8D6412A1D1C930082D8C1 /* TradeViewModel.swift in Sources */,
 				1CE8D65F2A1E01950082D8C1 /* Animations.swift in Sources */,
 				1CE8D6822A1F52C20082D8C1 /* ConnectionErrorLabel.swift in Sources */,
+				1C9391DA2A221C90003143CD /* TradeCell.swift in Sources */,
 				1CE8D6862A1F62DF0082D8C1 /* HapticGenerator.swift in Sources */,
 				1CE8D6222A1D0B160082D8C1 /* SceneDelegate.swift in Sources */,
 				1CE8D66B2A1E2C4E0082D8C1 /* CustomButton.swift in Sources */,
+				1C9391DE2A221CB4003143CD /* TopTraderViewModel.swift in Sources */,
 				1CE8D67A2A1EACF40082D8C1 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,6 +17,7 @@ extension UIColor {
     static let additionalText = UIColor(named: "AdditionalText")
     static let loadingBG = UIColor(named: "LoadingBG")
     static let actionStackBG = UIColor(named: "ActionStackBG")
+    static let tabBarBG = UIColor(named: "TabBarBG")
   }
 }
 

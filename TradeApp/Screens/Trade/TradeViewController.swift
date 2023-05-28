@@ -16,6 +16,7 @@ class TradeViewController: UIViewController {
   
   let request = URLRequest(url: URL(fileURLWithPath: Bundle.main.path(forResource: "index", ofType: "html")!))
   let viewModel = TradeViewModel()
+  let navLabel = UILabel()
   let balanceLabel = BalanceLabel()
   
   let webView: WKWebView = {
@@ -38,6 +39,7 @@ class TradeViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    tabBarController?.tabBar.isHidden = true
     setupLoadingView()
     updateView()
   }
@@ -64,10 +66,10 @@ class TradeViewController: UIViewController {
   }
   
   @objc private func handleKeyboardWillHide(notification: Notification) {
-    let balanceLabelHeight = 57.0
-    let webViewHeight = view.bounds.size.width * 0.9
+//    let balanceLabelHeight = 57.0
+//    let webViewHeight = view.bounds.size.width * 0.9
     let screenHeight = view.bounds.size.height
-    let stackHeight = (screenHeight * 0.8 - balanceLabelHeight - webViewHeight) * 0.85
+//    let stackHeight = (screenHeight * 0.8 - balanceLabelHeight - webViewHeight) * 0.85
     actionStack.snp.updateConstraints { make in
       make.bottom.equalTo(view.safeAreaInsets.bottom).offset(-screenHeight*0.09)
     }
@@ -163,7 +165,10 @@ class TradeViewController: UIViewController {
   
   func viewIsReady() {
     tabBarController?.tabBar.isHidden = false
-    title = "Trade"
+    navigationItem.titleView = navLabel
+    navLabel.textColor = UIColor.Theme.text
+    navLabel.font = UIFont.appFontBold(ofSize: 20)
+    navLabel.text = viewModel.title
   }
 }
 
