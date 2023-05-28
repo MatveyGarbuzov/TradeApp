@@ -18,11 +18,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let tabBarController = UITabBarController()
     
     let firstVC = UINavigationController(rootViewController: TradeViewController())
-    firstVC.tabBarItem = UITabBarItem(title: "Trade", image: UIImage(named: "Trade"), tag: 0)
+    let largeImage = UIImage(named: "Trade")
+    let tabBarImage = largeImage?.scaleToSize(CGSize(width: 24, height: 24))
+    firstVC.tabBarItem = UITabBarItem(title: "Trade", image: tabBarImage, tag: 0)
     
-    
+    let largeImage2 = UIImage(named: "Top")
+    let tabBarImage2 = largeImage2?.scaleToSize(CGSize(width: 24, height: 24))
     let secondVC = UINavigationController(rootViewController: TopTradersViewController())
-    secondVC.tabBarItem = UITabBarItem(title: "Top", image: UIImage(named: "Top"), tag: 1)
+    secondVC.tabBarItem = UITabBarItem(title: "Top", image: tabBarImage2, tag: 1)
 
     tabBarController.viewControllers = [firstVC, secondVC]
     tabBarController.tabBar.tintColor = UIColor.Theme.green
