@@ -14,7 +14,7 @@ class TradeViewController: UIViewController {
   //  var viewModel: TradeViewModel?
   private var loadingView: LoadingView?
   
-  let request = URLRequest(url: URL(fileURLWithPath: Bundle.main.path(forResource: "index", ofType: "html")!))
+//  let request = URLRequest(url: URL(fileURLWithPath: Bundle.main.path(forResource: "index", ofType: "html")!))
   let viewModel = TradeViewModel()
   let navLabel = UILabel()
   let balanceLabel = BalanceLabel()
@@ -154,7 +154,7 @@ class TradeViewController: UIViewController {
   func updateView() {
 //    guard let viewModel = viewModel else { return }
     
-    webView.load(request)
+    webView.load(viewModel.URLRequest)
     balanceLabel.viewModel = viewModel
     actionStack.viewModel = viewModel
     actionStack.delegate = self
@@ -196,6 +196,7 @@ extension TradeViewController: CurrencyPairDelegate {
 extension TradeViewController: UpdateViewModel {
   func updateViewModel() {
     actionStack.updateCurrencyPair()
+    print("TradeVC: \(viewModel.currencyPair)")
   }
 }
 

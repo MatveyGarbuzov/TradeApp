@@ -49,3 +49,8 @@ extension Int {
   }
 }
 
+extension String {
+  func formatToURL() {
+    
+  }
+}

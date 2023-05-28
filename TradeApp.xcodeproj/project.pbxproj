@@ -13,13 +13,26 @@
 		1C9391DE2A221CB4003143CD /* TopTraderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9391DD2A221CB4003143CD /* TopTraderViewModel.swift */; };
 		1C9AC7CF2A23BFA30017E121 /* CurrencyPairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9AC7CE2A23BFA30017E121 /* CurrencyPairViewModel.swift */; };
 		1C9AC7D22A23BFD00017E121 /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9AC7D12A23BFD00017E121 /* CustomCollectionCell.swift */; };
+		1C9AC7D62A23E9820017E121 /* GPBUSD.html in Resources */ = {isa = PBXBuildFile; fileRef = 1C9AC7D52A23E9820017E121 /* GPBUSD.html */; };
+		1C9AC7D82A23E9D60017E121 /* GBPJPY.html in Resources */ = {isa = PBXBuildFile; fileRef = 1C9AC7D72A23E9D60017E121 /* GBPJPY.html */; };
+		1C9AC7DA2A23E9F30017E121 /* USDJPY.html in Resources */ = {isa = PBXBuildFile; fileRef = 1C9AC7D92A23E9F30017E121 /* USDJPY.html */; };
+		1C9AC7DC2A23EA160017E121 /* AUDUSD.html in Resources */ = {isa = PBXBuildFile; fileRef = 1C9AC7DB2A23EA160017E121 /* AUDUSD.html */; };
+		1C9AC7DE2A23EA310017E121 /* USDCAD.html in Resources */ = {isa = PBXBuildFile; fileRef = 1C9AC7DD2A23EA310017E121 /* USDCAD.html */; };
+		1C9AC7E02A23EA4B0017E121 /* EURJPY.html in Resources */ = {isa = PBXBuildFile; fileRef = 1C9AC7DF2A23EA4B0017E121 /* EURJPY.html */; };
+		1C9AC7E22A23EA6A0017E121 /* NZDUSD.html in Resources */ = {isa = PBXBuildFile; fileRef = 1C9AC7E12A23EA6A0017E121 /* NZDUSD.html */; };
+		1C9AC7E42A23EA860017E121 /* USDCHF.html in Resources */ = {isa = PBXBuildFile; fileRef = 1C9AC7E32A23EA860017E121 /* USDCHF.html */; };
+		1C9AC7E82A23EAC20017E121 /* AUDJPY.html in Resources */ = {isa = PBXBuildFile; fileRef = 1C9AC7E72A23EAC20017E121 /* AUDJPY.html */; };
+		1C9AC7EA2A23EADF0017E121 /* NZDJPY.html in Resources */ = {isa = PBXBuildFile; fileRef = 1C9AC7E92A23EADF0017E121 /* NZDJPY.html */; };
+		1C9AC7EC2A23EAF90017E121 /* EURAUD.html in Resources */ = {isa = PBXBuildFile; fileRef = 1C9AC7EB2A23EAF90017E121 /* EURAUD.html */; };
+		1C9AC7EE2A23EB190017E121 /* EURGBP.html in Resources */ = {isa = PBXBuildFile; fileRef = 1C9AC7ED2A23EB190017E121 /* EURGBP.html */; };
+		1C9AC7F02A23EB350017E121 /* AUDCAD.html in Resources */ = {isa = PBXBuildFile; fileRef = 1C9AC7EF2A23EB350017E121 /* AUDCAD.html */; };
 		1CE8D6202A1D0B160082D8C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D61F2A1D0B160082D8C1 /* AppDelegate.swift */; };
 		1CE8D6222A1D0B160082D8C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D6212A1D0B160082D8C1 /* SceneDelegate.swift */; };
 		1CE8D6242A1D0B160082D8C1 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D6232A1D0B160082D8C1 /* TradeViewController.swift */; };
 		1CE8D6292A1D0B180082D8C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE8D6282A1D0B180082D8C1 /* Assets.xcassets */; };
 		1CE8D62C2A1D0B180082D8C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CE8D62A2A1D0B180082D8C1 /* LaunchScreen.storyboard */; };
 		1CE8D63B2A1D10220082D8C1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1CE8D63A2A1D10220082D8C1 /* SnapKit */; };
-		1CE8D63D2A1D13E90082D8C1 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 1CE8D63C2A1D13550082D8C1 /* index.html */; };
+		1CE8D63D2A1D13E90082D8C1 /* EURUSD.html in Resources */ = {isa = PBXBuildFile; fileRef = 1CE8D63C2A1D13550082D8C1 /* EURUSD.html */; };
 		1CE8D6412A1D1C930082D8C1 /* TradeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D6402A1D1C930082D8C1 /* TradeViewModel.swift */; };
 		1CE8D6432A1D1F890082D8C1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D6422A1D1F890082D8C1 /* Extensions.swift */; };
 		1CE8D6452A1D20980082D8C1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D6442A1D20980082D8C1 /* Fonts.swift */; };
@@ -51,6 +64,19 @@
 		1C9391DD2A221CB4003143CD /* TopTraderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTraderViewModel.swift; sourceTree = "<group>"; };
 		1C9AC7CE2A23BFA30017E121 /* CurrencyPairViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairViewModel.swift; sourceTree = "<group>"; };
 		1C9AC7D12A23BFD00017E121 /* CustomCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
+		1C9AC7D52A23E9820017E121 /* GPBUSD.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = GPBUSD.html; sourceTree = "<group>"; };
+		1C9AC7D72A23E9D60017E121 /* GBPJPY.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = GBPJPY.html; sourceTree = "<group>"; };
+		1C9AC7D92A23E9F30017E121 /* USDJPY.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = USDJPY.html; sourceTree = "<group>"; };
+		1C9AC7DB2A23EA160017E121 /* AUDUSD.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = AUDUSD.html; sourceTree = "<group>"; };
+		1C9AC7DD2A23EA310017E121 /* USDCAD.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = USDCAD.html; sourceTree = "<group>"; };
+		1C9AC7DF2A23EA4B0017E121 /* EURJPY.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = EURJPY.html; sourceTree = "<group>"; };
+		1C9AC7E12A23EA6A0017E121 /* NZDUSD.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = NZDUSD.html; sourceTree = "<group>"; };
+		1C9AC7E32A23EA860017E121 /* USDCHF.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = USDCHF.html; sourceTree = "<group>"; };
+		1C9AC7E72A23EAC20017E121 /* AUDJPY.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = AUDJPY.html; sourceTree = "<group>"; };
+		1C9AC7E92A23EADF0017E121 /* NZDJPY.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = NZDJPY.html; sourceTree = "<group>"; };
+		1C9AC7EB2A23EAF90017E121 /* EURAUD.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = EURAUD.html; sourceTree = "<group>"; };
+		1C9AC7ED2A23EB190017E121 /* EURGBP.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = EURGBP.html; sourceTree = "<group>"; };
+		1C9AC7EF2A23EB350017E121 /* AUDCAD.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = AUDCAD.html; sourceTree = "<group>"; };
 		1CE8D61C2A1D0B160082D8C1 /* TradeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CE8D61F2A1D0B160082D8C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CE8D6212A1D0B160082D8C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +84,7 @@
 		1CE8D6282A1D0B180082D8C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CE8D62B2A1D0B180082D8C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CE8D62D2A1D0B180082D8C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1CE8D63C2A1D13550082D8C1 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		1CE8D63C2A1D13550082D8C1 /* EURUSD.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = EURUSD.html; sourceTree = "<group>"; };
 		1CE8D6402A1D1C930082D8C1 /* TradeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeViewModel.swift; sourceTree = "<group>"; };
 		1CE8D6422A1D1F890082D8C1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1CE8D6442A1D20980082D8C1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -192,7 +218,20 @@
 				1CE8D6232A1D0B160082D8C1 /* TradeViewController.swift */,
 				1CE8D66C2A1E342A0082D8C1 /* TradeModel.swift */,
 				1CE8D6402A1D1C930082D8C1 /* TradeViewModel.swift */,
-				1CE8D63C2A1D13550082D8C1 /* index.html */,
+				1C9AC7E72A23EAC20017E121 /* AUDJPY.html */,
+				1CE8D63C2A1D13550082D8C1 /* EURUSD.html */,
+				1C9AC7D52A23E9820017E121 /* GPBUSD.html */,
+				1C9AC7D72A23E9D60017E121 /* GBPJPY.html */,
+				1C9AC7D92A23E9F30017E121 /* USDJPY.html */,
+				1C9AC7DB2A23EA160017E121 /* AUDUSD.html */,
+				1C9AC7DD2A23EA310017E121 /* USDCAD.html */,
+				1C9AC7E32A23EA860017E121 /* USDCHF.html */,
+				1C9AC7DF2A23EA4B0017E121 /* EURJPY.html */,
+				1C9AC7EB2A23EAF90017E121 /* EURAUD.html */,
+				1C9AC7E92A23EADF0017E121 /* NZDJPY.html */,
+				1C9AC7E12A23EA6A0017E121 /* NZDUSD.html */,
+				1C9AC7ED2A23EB190017E121 /* EURGBP.html */,
+				1C9AC7EF2A23EB350017E121 /* AUDCAD.html */,
 			);
 			path = Trade;
 			sourceTree = "<group>";
@@ -330,11 +369,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CE8D6542A1D221F0082D8C1 /* Inter-Bold.ttf in Resources */,
-				1CE8D63D2A1D13E90082D8C1 /* index.html in Resources */,
+				1C9AC7E22A23EA6A0017E121 /* NZDUSD.html in Resources */,
+				1C9AC7E02A23EA4B0017E121 /* EURJPY.html in Resources */,
+				1CE8D63D2A1D13E90082D8C1 /* EURUSD.html in Resources */,
+				1C9AC7E82A23EAC20017E121 /* AUDJPY.html in Resources */,
+				1C9AC7EE2A23EB190017E121 /* EURGBP.html in Resources */,
+				1C9AC7DE2A23EA310017E121 /* USDCAD.html in Resources */,
+				1C9AC7DC2A23EA160017E121 /* AUDUSD.html in Resources */,
+				1C9AC7DA2A23E9F30017E121 /* USDJPY.html in Resources */,
+				1C9AC7D82A23E9D60017E121 /* GBPJPY.html in Resources */,
 				1CE8D62C2A1D0B180082D8C1 /* LaunchScreen.storyboard in Resources */,
+				1C9AC7D62A23E9820017E121 /* GPBUSD.html in Resources */,
 				1CE8D6552A1D221F0082D8C1 /* Inter-Medium.ttf in Resources */,
 				1CE8D6292A1D0B180082D8C1 /* Assets.xcassets in Resources */,
+				1C9AC7EA2A23EADF0017E121 /* NZDJPY.html in Resources */,
+				1C9AC7EC2A23EAF90017E121 /* EURAUD.html in Resources */,
 				1CE8D6842A1F558D0082D8C1 /* Inter-ExtraBold.ttf in Resources */,
+				1C9AC7F02A23EB350017E121 /* AUDCAD.html in Resources */,
+				1C9AC7E42A23EA860017E121 /* USDCHF.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

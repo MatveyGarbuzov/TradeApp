@@ -6,13 +6,41 @@
 //
 
 import Foundation
+import WebKit
+
+enum URLString: String, CaseIterable {
+  case eurUsd = "EUR/USD"
+  case gbpUsd = "GPB/USD"
+  case gbpJpy = "GBP/JPY"
+  case usdJpy = "USD/JPY"
+  case audUsd = "AUD/USD"
+  case usdCad = "USD/CAD"
+  case eurJpy = "EUR/JPY"
+  case nzdUsd = "NZD/USD"
+  case usdChf = "USD/CHF"
+  case audJpy = "AUD/JPY"
+  case nzdJpy = "NZD/JPY"
+  case eurAud = "EUR/AUD"
+  case eurGbp = "EUR/GBP"
+  case audCad = "AUD/CAD"
+
+  var fileURL: URL {
+    let name = self.rawValue.filter { $0 != "/"}
+    return URL(fileURLWithPath: Bundle.main.path(forResource: name, ofType: "html")!)
+  }
+}
 
 class TradeViewModel {
   let title = "Trade"
-  var currencyPair = "GPB/USD"
+  var currencyPair = "EUR/USD"
   var balance = Balance(currentBalance: 10000)
   var timerStepper = Stepper(currentValue: 1)
   var investmentStepper = Stepper(currentValue: 1000)
+  
+  var URLRequest: URLRequest {
+    let currencyPair = URLString(rawValue: currencyPair)
+    return Foundation.URLRequest(url: currencyPair!.fileURL)
+  }
   
   var balanceText: String {
     return balance.currentBalance.formattedWithSpace()
