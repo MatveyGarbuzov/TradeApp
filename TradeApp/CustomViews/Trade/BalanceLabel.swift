@@ -24,7 +24,6 @@ class BalanceLabel: CustomLabel {
   }
   
   func updateUI() {
-    animate()
     super.updateLabel(viewModel?.balanceText ?? "0")
   }
   
@@ -32,28 +31,28 @@ class BalanceLabel: CustomLabel {
     let curValue = Int(label.text?.replacingOccurrences(of: " ", with: "") ?? "0") ?? 0
     let newValue = viewModel?.balance.currentBalance ?? 0
     if curValue < newValue {
-      self.win(label)
+      self.win()
     } else {
-      self.lose(label)
+      self.lose()
     }
   }
   
-  func win(_ label: UILabel) {
+  func win() {
     UIView.transition(with: label, duration: 0.5, options: [.transitionFlipFromTop], animations: {
-      label.textColor = UIColor.Theme.green
+      self.label.textColor = UIColor.Theme.green
     }) { _ in
-      UIView.transition(with: label, duration: 0.5, animations: {
-        label.textColor = UIColor.Theme.text
+      UIView.transition(with: self.label, duration: 0.5, animations: {
+        self.label.textColor = UIColor.Theme.text
       }, completion: nil)
     }
   }
   
-  func lose(_ label: UILabel) {
+  func lose() {
     UIView.transition(with: label, duration: 0.5, options: [.transitionFlipFromBottom], animations: {
-      label.textColor = UIColor.Theme.red
+      self.label.textColor = UIColor.Theme.red
     }) { _ in
-      UIView.transition(with: label, duration: 0.5, animations: {
-        label.textColor = UIColor.Theme.text
+      UIView.transition(with: self.label, duration: 0.5, animations: {
+        self.label.textColor = UIColor.Theme.text
       }, completion: nil)
     }
     

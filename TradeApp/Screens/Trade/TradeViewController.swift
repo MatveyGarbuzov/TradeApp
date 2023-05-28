@@ -181,6 +181,7 @@ extension TradeViewController: UIScrollViewDelegate {
 extension TradeViewController: BalanceChangedDelegate {
   func updateBalanceLabel() {
     balanceLabel.updateUI()
+    balanceLabel.animate()
   }
 }
 

@@ -81,11 +81,6 @@ class TopTraderCell: UITableViewCell {
       make.trailing.equalToSuperview().inset(10)
       make.width.equalTo(contentView.snp.width).multipliedBy(0.21)
     }
-//    numberLabel.backgroundColor = .red
-//    countryLabel.backgroundColor = .blue
-//    nameLabel.backgroundColor = .red
-//    depositLabel.backgroundColor = .blue
-//    profitLabel.backgroundColor = .red
   }
   
   private func setupLabels() {
