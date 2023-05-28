@@ -12,7 +12,11 @@ struct TopTrader {
   let country: String
   let name: String
   let deposit: String
-  let profit: String
+  var profitInt: Int
+  
+  var profit: String {
+    return "$\(profitInt)"
+  }
   
   let height: CGFloat = 55.0
   var flag: UIImageView {
@@ -25,16 +29,16 @@ class TopTraderViewModel {
   var traders: [TopTrader] = []
   
   init() {
-    let trader1 = TopTrader(number: 1, country: "USA", name: "Oliver", deposit: "$2367", profit: "$336755")
-    let trader2 = TopTrader(number: 2, country: "Canada", name: "Jack", deposit: "$1175", profit: "$148389")
-    let trader3 = TopTrader(number: 3, country: "Brazil", name: "Harry", deposit: "$1000", profit: "$113888")
-    let trader4 = TopTrader(number: 4, country: "South-Korea", name: "Jacob", deposit: "$999", profit: "$36755")
-    let trader5 = TopTrader(number: 5, country: "Germany", name: "Charley", deposit: "$888", profit: "$18389")
-    let trader6 = TopTrader(number: 6, country: "Brazil", name: "Thomas", deposit: "$777", profit: "$12000")
-    let trader7 = TopTrader(number: 7, country: "France", name: "George", deposit: "$666", profit: "$11111")
-    let trader8 = TopTrader(number: 8, country: "New-Zealand", name: "Oscar", deposit: "$555", profit: "$9988")
-    let trader9 = TopTrader(number: 9, country: "India", name: "James", deposit: "$444", profit: "$8877")
-    let trader10 = TopTrader(number: 10, country: "Spain", name: "William", deposit: "$333", profit: "$6652")
+    let trader1 = TopTrader(number: 1, country: "USA", name: "Oliver", deposit: "$2367", profitInt: 336755)
+    let trader2 = TopTrader(number: 2, country: "Canada", name: "Jack", deposit: "$1175", profitInt: 148389)
+    let trader3 = TopTrader(number: 3, country: "Brazil", name: "Harry", deposit: "$1000", profitInt: 113888)
+    let trader4 = TopTrader(number: 4, country: "South-Korea", name: "Jacob", deposit: "$999", profitInt: 36755)
+    let trader5 = TopTrader(number: 5, country: "Germany", name: "Charley", deposit: "$888", profitInt: 18389)
+    let trader6 = TopTrader(number: 6, country: "Brazil", name: "Thomas", deposit: "$777", profitInt: 12000)
+    let trader7 = TopTrader(number: 7, country: "France", name: "George", deposit: "$666", profitInt: 11111)
+    let trader8 = TopTrader(number: 8, country: "New-Zealand", name: "Oscar", deposit: "$555", profitInt: 9988)
+    let trader9 = TopTrader(number: 9, country: "India", name: "James", deposit: "$444", profitInt: 8877)
+    let trader10 = TopTrader(number: 10, country: "Spain", name: "William", deposit: "$333", profitInt: 6652)
     
     traders = [trader1, trader2, trader3, trader4, trader5, trader6, trader7, trader8, trader9, trader10]
   }

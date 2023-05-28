@@ -27,6 +27,7 @@ class TopTraderCell: UITableViewCell {
   var model: TopTraderCellModel? {
     didSet {
       guard let model = model else { return }
+      print("DIDSET")
       numberLabel.text = "\(model.number)"
       countryLabel.image = model.country.image
       nameLabel.text = model.name
@@ -94,7 +95,41 @@ class TopTraderCell: UITableViewCell {
     profitLabel.textColor = UIColor.Theme.green
   }
   
+  func updateProfit(with text: String) {
+    profitLabel.text = text
+    profitLabel.addGlowAnimation(duration: 1.0)
+  }
+  
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
 }
+
+extension UILabel {
+  func addGlowAnimation(duration: TimeInterval) {
+    
+    // Add the animation
+    let animation = CABasicAnimation(keyPath: "shadowOpacity")
+    animation.fromValue = 0.0
+    animation.toValue = 1.0
+    animation.duration = duration
+    animation.autoreverses = true
+    
+    // Apply the animation
+    self.layer.shadowColor = UIColor.white.cgColor
+    self.layer.shadowRadius = 8.0
+    self.layer.shadowOpacity = 1.0
+    self.layer.shadowOffset = CGSize(width: 0, height: 0)
+    self.layer.add(animation, forKey: "glow")
+    
+    // After the animation completes, remove the effect
+    DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+      UIView.animate(withDuration: duration, animations: {
+        self.layer.removeAllAnimations()
+        self.layer.shadowOpacity = 0.0
+      })
+    }
+  }
+}
+
+

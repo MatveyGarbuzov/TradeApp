@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class TopTradersViewController: UIViewController {
+  var timer: Timer?
   
   private let navLabel = UILabel()
   private let numberLabel = UILabel()
@@ -39,6 +40,47 @@ class TopTradersViewController: UIViewController {
     setupTableView()
     setupTableViewTop()
     setupLayout()
+    
+    startTimer()
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    stopTimer()
+  }
+  
+  private func stopTimer() {
+    if let timer = self.timer {
+      timer.invalidate()
+      self.timer = nil
+    }
+  }
+  
+  private func startTimer() {
+    self.stopTimer()
+    self.timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true, block: { [weak self] (timer) in
+      self?.updateTopTraders()
+    })
+  }
+  
+  private func updateTopTraders() {
+    DispatchQueue.main.async { [self] in
+      let n = viewModel.traders.count
+      let numberOfTradersToChange = Int.random(in: 0..<n)
+      var uniqueIndexes = Set<Int>()
+      while uniqueIndexes.count < numberOfTradersToChange {
+        let randomNum = Int.random(in: 0..<n)
+        uniqueIndexes.insert(randomNum)
+      }
+      print("Random indexes: \(uniqueIndexes)")
+      
+      for index in uniqueIndexes {
+        let newValue = Int.random(in: -50..<50)
+        self.viewModel.traders[index].profitInt += newValue
+        if let cell = self.tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? TopTraderCell {
+          cell.updateProfit(with: self.viewModel.traders[index].profit)
+        }
+      }
+    }
   }
   
   private func setupNavBar() {
